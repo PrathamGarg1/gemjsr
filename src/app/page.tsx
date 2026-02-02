@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/select"
 import { Navbar } from "@/components/Navbar";
 import { Spotlight } from "@/components/ui/spotlight";
+import { BackgroundBeams } from "@/components/ui/background-beams";
 import Link from "next/link"; // Correct import for Link
 
 interface ResultItem {
@@ -78,8 +79,11 @@ export default function Home() {
       
       {/* Background Effects */}
       <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="#4f46e5" />
+      <Spotlight className="h-[80vh] w-[50vw] top-10 left-full" fill="purple" />
+      <BackgroundBeams className="fixed inset-0 -z-10 opacity-40" />
       
-      <div className="fixed inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"></div>
+      <div className="fixed inset-0 -z-20 h-full w-full bg-white bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"></div>
+
       <div className="fixed left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-indigo-400 opacity-20 blur-[100px]"></div>
 
       <main className="relative z-10 w-full pt-32 pb-12 px-4 md:px-6 flex flex-col items-center">
