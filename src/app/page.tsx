@@ -90,18 +90,12 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-indigo-100 bg-white/50 backdrop-blur-sm text-xs font-medium text-indigo-600 mb-6 shadow-sm">
-               <Sparkles className="h-3 w-3 text-indigo-500" />
-               <span>New: Neural Search v2.0 Live</span>
-            </div>
-            
             <h1 className="text-5xl md:text-7xl font-bold text-slate-900 pb-4 tracking-tight drop-shadow-sm">
-              Semantic Inventory <br/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">Intelligence.</span>
+              Search GeM Bids <br/>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">Instantly.</span>
             </h1>
             <p className="mt-4 text-slate-500 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-              Find exactly what you need with high-dimensional vector retrieval. 
-              Enterprise-grade search for the modern inventory stack.
+              Simply describe the item you are looking for, and we will find the most relevant Government e-Marketplace bids for you.
             </p>
           </motion.div>
         </div>

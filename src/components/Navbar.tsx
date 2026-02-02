@@ -9,10 +9,7 @@ export function Navbar() {
     <nav className="fixed top-0 w-full z-50 transition-all duration-300 bg-white/70 backdrop-blur-md border-b border-gray-200/50">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between max-w-7xl">
         <Link href="/" className="flex items-center gap-2 group">
-          <div className="bg-gradient-to-tr from-indigo-600 to-purple-600 text-white p-1.5 rounded-lg shadow-md hover:shadow-lg transition-all group-hover:scale-105">
-            <Feather className="h-5 w-5" />
-          </div>
-          <span className="font-bold text-lg tracking-tight text-slate-900">
+          <span className="font-bold text-xl tracking-tight text-slate-900">
             gembid<span className="text-slate-400 font-normal">.help</span>
           </span>
         </Link>
