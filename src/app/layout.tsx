@@ -141,6 +141,27 @@ export default function RootLayout({
     }]
   };
 
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://gembid.help"
+    }, {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "GeM Tools",
+      "item": "https://gembid.help/#tools"
+    }, {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Bid Prediction",
+      "item": "https://gembid.help/#predict"
+    }]
+  };
+
   return (
     <html lang="en">
       <head>
@@ -155,6 +176,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
         />
       </head>
       <body
