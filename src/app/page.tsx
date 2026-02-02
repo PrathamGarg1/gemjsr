@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Search, Loader2, Copy, ExternalLink, SlidersHorizontal, Sparkles } from "lucide-react";
+import { Search, Loader2, Copy, ExternalLink, SlidersHorizontal, Sparkles, TrendingUp, ShieldCheck, Zap, Database, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
@@ -150,7 +150,7 @@ export default function Home() {
         </motion.div>
 
         {/* Results Section */}
-        <div className="w-full max-w-6xl">
+        <div className="w-full max-w-6xl mb-32">
             <AnimatePresence>
             {searched && (
                 <motion.div
@@ -233,10 +233,128 @@ export default function Home() {
             )}
             </AnimatePresence>
         </div>
+
+        {/* SEO Content Sections */}
+        <div className="w-full max-w-5xl space-y-24">
+            
+            {/* Why You Are Losing */}
+            <section className="text-center space-y-8">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-50 text-red-600 font-medium text-sm">
+                    <TrendingUp className="h-4 w-4" />
+                    <span>Stop Losing Tenders</span>
+                </div>
+                <h2 className="text-3xl md:text-5xl font-bold text-slate-900">Why are you losing GeM Contracts?</h2>
+                <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+                    Bidding on the Government e-Marketplace is a war of pennies. If you quote just ₹1 higher than the L1 price, you lose everything. Most contractors guess the price or rely on outdated manual searches. 
+                    <br/><br/>
+                    <strong>That ends today.</strong>
+                </p>
+            </section>
+
+             {/* The Technical Advantage */}
+             <section className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div className="space-y-6">
+                    <h2 className="text-3xl font-bold text-slate-900">The Power of Indexed Intelligence</h2>
+                    <p className="text-lg text-slate-600">
+                        We don't just "search" keywords. Our engine runs on a sophisticated AI pipeline:
+                    </p>
+                    <ul className="space-y-4">
+                        <li className="flex items-start gap-3">
+                            <CheckCircle2 className="h-6 w-6 text-emerald-500 flex-shrink-0" />
+                            <span className="text-slate-700"><strong>Bi-Encoder Retrieval:</strong> Instantly finds millions of relevant candidates from the GeM database.</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                            <CheckCircle2 className="h-6 w-6 text-emerald-500 flex-shrink-0" />
+                            <span className="text-slate-700"><strong>Cross-Encoder Re-Ranking:</strong> Analyzes the true semantic meaning of your query to filter out noise.</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                            <CheckCircle2 className="h-6 w-6 text-emerald-500 flex-shrink-0" />
+                            <span className="text-slate-700"><strong>Complete GeM Index:</strong> We have indexed the entire portal, so you don't have to guess.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div className="bg-slate-900 rounded-3xl p-8 text-white relative overflow-hidden">
+                    <div className="absolute top-0 right-0 p-32 bg-indigo-500 rounded-full blur-[100px] opacity-30"></div>
+                    <Database className="h-12 w-12 text-indigo-400 mb-6" />
+                    <h3 className="text-2xl font-bold mb-4">Technical Specs</h3>
+                    <div className="space-y-4 font-mono text-sm text-slate-300">
+                        <div className="flex justify-between border-b border-white/10 pb-2">
+                            <span>Model</span>
+                            <span className="text-white">all-mpnet-base-v2</span>
+                        </div>
+                        <div className="flex justify-between border-b border-white/10 pb-2">
+                            <span>Re-Ranker</span>
+                            <span className="text-white">ms-marco-MiniLM-L-6-v2</span>
+                        </div>
+                        <div className="flex justify-between border-b border-white/10 pb-2">
+                            <span>Latency</span>
+                            <span className="text-white">&lt; 200ms</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Who Needs This */}
+            <section className="text-center space-y-12">
+                <h2 className="text-3xl font-bold text-slate-900">For the Winners of Public Procurement</h2>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div className="p-8 bg-white border border-slate-100 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+                        <ShieldCheck className="h-10 w-10 text-indigo-500 mx-auto mb-4" />
+                        <h3 className="text-xl font-bold text-slate-900 mb-2">OEMs</h3>
+                        <p className="text-slate-600">Track how your products are being priced by resellers and ensure brand compliance.</p>
+                    </div>
+                    <div className="p-8 bg-white border border-slate-100 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+                        <Zap className="h-10 w-10 text-amber-500 mx-auto mb-4" />
+                        <h3 className="text-xl font-bold text-slate-900 mb-2">Resellers & Traders</h3>
+                        <p className="text-slate-600">Find the L1 price instantly. Bid with confidence knowing you are competitive.</p>
+                    </div>
+                    <div className="p-8 bg-white border border-slate-100 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+                        <TrendingUp className="h-10 w-10 text-emerald-500 mx-auto mb-4" />
+                        <h3 className="text-xl font-bold text-slate-900 mb-2">Consultants</h3>
+                        <p className="text-slate-600">Offer superior insights to your clients by leveraging data-backed bid intelligence.</p>
+                    </div>
+                </div>
+            </section>
+
+             {/* SEO Text Block */}
+             <section className="prose prose-slate max-w-none text-slate-600">
+                <h2 className="text-center text-slate-900">Mastering the Government e-Marketplace (GeM)</h2>
+                <p>
+                    The Government e-Marketplace (GeM) is India's premier public procurement portal. To succeed, understanding "L1" (Level 1) pricing is critical. The L1 bidder is the one who quotes the lowest price and is typically awarded the contract. However, finding historical L1 prices for specific items like "HP Laptops" or "Godrej Chairs" is difficult on the official portal due to limited search capabilities.
+                </p>
+                <p>
+                    <strong>gembid.help</strong> solves this problem. We are a GeM Bid Search engine designed to help you predict winning bid prices. By analyzing thousands of past tenders, our tool gives you the median, lowest, and highest winning prices for any category. Whether you are participating in a Reverse Auction (RA) or a Direct Purchase, our data ensures you never bid blindly.
+                </p>
+            </section>
+
+            {/* FAQ */}
+            <section className="max-w-3xl mx-auto w-full space-y-8">
+                <h2 className="text-3xl font-bold text-slate-900 text-center">Frequently Asked Questions</h2>
+                <div className="space-y-4">
+                    <div className="p-6 bg-white rounded-xl border border-slate-200">
+                        <h3 className="font-bold text-slate-900 mb-2">How accurate is the price prediction?</h3>
+                        <p className="text-slate-600">We display actual historical winning prices (L1) from finalized GeM contracts. The accuracy is 100% relative to historical data.</p>
+                    </div>
+                    <div className="p-6 bg-white rounded-xl border border-slate-200">
+                        <h3 className="font-bold text-slate-900 mb-2">Can I search for any product?</h3>
+                        <p className="text-slate-600">Yes. Our semantic search engine understands product descriptions, so you can search for generic terms like "Office Chair" or specific models.</p>
+                    </div>
+                    <div className="p-6 bg-white rounded-xl border border-slate-200">
+                        <h3 className="font-bold text-slate-900 mb-2">Is this affiliated with GeM?</h3>
+                        <p className="text-slate-600">No, we are an independent market intelligence tool designed to help businesses navigate the public procurement landscape more effectively.</p>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
       </main>
       
-      <footer className="border-t border-slate-100 bg-white py-12 relative z-10">
+      <footer className="border-t border-slate-100 bg-white py-12 relative z-10 w-full">
         <div className="container mx-auto px-4 text-center text-slate-400 text-sm">
+          <p className="mb-4">
+            <span className="font-semibold text-slate-600">gembid.help</span> &bull; The #1 GeM Intelligence Tool
+          </p>
           <p>&copy; {new Date().getFullYear()} gembid.help. All rights reserved.</p>
         </div>
       </footer>
