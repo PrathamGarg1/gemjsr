@@ -34,7 +34,10 @@ export const metadata: Metadata = {
     "GeM", "Government e-Marketplace", "GeM Bid Price", "Predict GeM Bids", 
     "Win GeM Tenders", "GeM Consultancy", "GeM Portal Search", 
     "Bid Intelligence", "Artificial Intelligence for GeM", "Contract Winning Tool",
-    "L1 Prediction", "Tender Analysis", "Public Procurement India"
+    "L1 Prediction", "Tender Analysis", "Public Procurement India",
+    "Etenders", "GeM Registration", "GeM Login", "Central Public Procurement Portal",
+    "CPPP", "GeM Reverse Auction", "Direct Purchase GeM", "L1 Purchase GeM",
+    "GeM Brand Approval", "GeM Vendor Assessment", "GeM Catalogue Management"
   ],
   openGraph: {
     title: "Win More GeM Tenders with AI Price Prediction",

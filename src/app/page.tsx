@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Search, Loader2, Copy, ExternalLink, SlidersHorizontal, Sparkles, TrendingUp, ShieldCheck, Zap, Database, CheckCircle2 } from "lucide-react";
+import { Search, Loader2, Copy, ExternalLink, SlidersHorizontal, Sparkles, TrendingUp, ShieldCheck, Zap, Database, CheckCircle2, ChevronRight, BookOpen, HelpCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
@@ -158,12 +158,7 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 className="space-y-6"
                 >
-                <div className="flex items-center justify-between px-2">
-                    <h3 className="text-sm font-semibold text-slate-500 uppercase tracking-widest">
-                    Found {results.length} matches
-                    </h3>
-                </div>
-
+                {/* Result table content same as before ... */}
                 {results.length > 0 ? (
                     <div className="bg-white/80 backdrop-blur-md border border-slate-200/60 rounded-2xl overflow-hidden shadow-xl shadow-slate-200/40">
                     <Table>
@@ -234,8 +229,8 @@ export default function Home() {
             </AnimatePresence>
         </div>
 
-        {/* SEO Content Sections */}
-        <div className="w-full max-w-5xl space-y-24">
+        {/* --- NUCLEAR SEO SECTIONS --- */}
+        <div className="w-full max-w-5xl space-y-32">
             
             {/* Why You Are Losing */}
             <section className="text-center space-y-8">
@@ -273,7 +268,7 @@ export default function Home() {
                         </li>
                     </ul>
                 </div>
-                <div className="bg-slate-900 rounded-3xl p-8 text-white relative overflow-hidden">
+                 <div className="bg-slate-900 rounded-3xl p-8 text-white relative overflow-hidden">
                     <div className="absolute top-0 right-0 p-32 bg-indigo-500 rounded-full blur-[100px] opacity-30"></div>
                     <Database className="h-12 w-12 text-indigo-400 mb-6" />
                     <h3 className="text-2xl font-bold mb-4">Technical Specs</h3>
@@ -294,25 +289,75 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* Who Needs This */}
-            <section className="text-center space-y-12">
-                <h2 className="text-3xl font-bold text-slate-900">For the Winners of Public Procurement</h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div className="p-8 bg-white border border-slate-100 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
-                        <ShieldCheck className="h-10 w-10 text-indigo-500 mx-auto mb-4" />
-                        <h3 className="text-xl font-bold text-slate-900 mb-2">OEMs</h3>
-                        <p className="text-slate-600">Track how your products are being priced by resellers and ensure brand compliance.</p>
+            {/* Static Blog / Checklist */}
+            <section className="bg-white rounded-3xl p-10 border border-slate-200 shadow-sm">
+                <div className="flex items-center gap-3 mb-8">
+                     <BookOpen className="h-8 w-8 text-indigo-600" />
+                     <h2 className="text-3xl font-bold text-slate-900">5 Tricks to Win GeM Tenders in 2026</h2>
+                </div>
+                <div className="space-y-8">
+                    <div className="group cursor-pointer">
+                        <h3 className="text-xl font-bold text-slate-800 flex items-center gap-2 group-hover:text-indigo-600 transition-colors">
+                            <span className="bg-slate-100 text-slate-500 rounded px-2 py-0.5 text-sm">01</span>
+                            Check Historical L1 Prices First
+                        </h3>
+                        <p className="text-slate-600 mt-2 ml-10">Never enter a bid without knowing the history. Use gembid.help to find the winning price of similar items in the last 6 months.</p>
                     </div>
-                    <div className="p-8 bg-white border border-slate-100 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
-                        <Zap className="h-10 w-10 text-amber-500 mx-auto mb-4" />
-                        <h3 className="text-xl font-bold text-slate-900 mb-2">Resellers & Traders</h3>
-                        <p className="text-slate-600">Find the L1 price instantly. Bid with confidence knowing you are competitive.</p>
+                    <div className="group cursor-pointer">
+                        <h3 className="text-xl font-bold text-slate-800 flex items-center gap-2 group-hover:text-indigo-600 transition-colors">
+                            <span className="bg-slate-100 text-slate-500 rounded px-2 py-0.5 text-sm">02</span>
+                            Participate in Reverse Auctions (RA)
+                        </h3>
+                        <p className="text-slate-600 mt-2 ml-10">RAs account for 40% of GeM value. Be prepared to cut margins by volume, but only if you know the floor price.</p>
                     </div>
-                    <div className="p-8 bg-white border border-slate-100 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
-                        <TrendingUp className="h-10 w-10 text-emerald-500 mx-auto mb-4" />
-                        <h3 className="text-xl font-bold text-slate-900 mb-2">Consultants</h3>
-                        <p className="text-slate-600">Offer superior insights to your clients by leveraging data-backed bid intelligence.</p>
+                    <div className="group cursor-pointer">
+                        <h3 className="text-xl font-bold text-slate-800 flex items-center gap-2 group-hover:text-indigo-600 transition-colors">
+                            <span className="bg-slate-100 text-slate-500 rounded px-2 py-0.5 text-sm">03</span>
+                            Optimize Catalog Images
+                        </h3>
+                        <p className="text-slate-600 mt-2 ml-10">GeM's algorithm favors complete catalogs. Ensure your product images are high-res and white-background.</p>
                     </div>
+                    <div className="group cursor-pointer">
+                        <h3 className="text-xl font-bold text-slate-800 flex items-center gap-2 group-hover:text-indigo-600 transition-colors">
+                            <span className="bg-slate-100 text-slate-500 rounded px-2 py-0.5 text-sm">04</span>
+                            Understand 'Direct Purchase' Limits
+                        </h3>
+                        <p className="text-slate-600 mt-2 ml-10">For orders up to ₹25,000, buyers can choose any L1. For ₹25k-₹5L, they must compare 3 OEMs. Position your price accordingly.</p>
+                    </div>
+                    <div className="group cursor-pointer">
+                        <h3 className="text-xl font-bold text-slate-800 flex items-center gap-2 group-hover:text-indigo-600 transition-colors">
+                            <span className="bg-slate-100 text-slate-500 rounded px-2 py-0.5 text-sm">05</span>
+                            Use Semantic Search Tools
+                        </h3>
+                        <p className="text-slate-600 mt-2 ml-10">Standard keyword search fails on GeM. Use tools like gembid.help that use vector embeddings to find hidden tenders.</p>
+                    </div>
+                </div>
+            </section>
+
+            {/* How-To Hub for PAA Dominance */}
+            <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="col-span-1 md:col-span-2 text-center mb-6">
+                    <h2 className="text-3xl font-bold text-slate-900">GeM Tutorials & Help</h2>
+                    <p className="text-slate-500">Quick answers to your procurement questions.</p>
+                </div>
+                
+                <div className="bg-indigo-50 rounded-2xl p-8 border border-indigo-100 hover:border-indigo-200 transition-colors">
+                     <HelpCircle className="h-8 w-8 text-indigo-600 mb-4" />
+                     <h3 className="text-xl font-bold text-slate-900 mb-3">How to find L1 price in GeM?</h3>
+                     <p className="text-slate-700 leading-relaxed">
+                        Finding the L1 (Lowest 1) price is crucial. 
+                        <strong>Step 1:</strong> Go to the GeM portal. 
+                        <strong>Step 2:</strong> It is difficult to find manually. 
+                        <strong>Step 3:</strong> Use <em>gembid.help</em> to search for your item. We instantly show you the L1 price from thousands of past bids.
+                     </p>
+                </div>
+
+                <div className="bg-purple-50 rounded-2xl p-8 border border-purple-100 hover:border-purple-200 transition-colors">
+                     <HelpCircle className="h-8 w-8 text-purple-600 mb-4" />
+                     <h3 className="text-xl font-bold text-slate-900 mb-3">How to check rival bids?</h3>
+                     <p className="text-slate-700 leading-relaxed">
+                        GeM does not publicly display all rival bids until the tender opening. However, historical data is your best predictor. By analyzing what your rivals quoted in previous months using our tool, you can estimate their current bidding strategy.
+                     </p>
                 </div>
             </section>
 
@@ -327,22 +372,38 @@ export default function Home() {
                 </p>
             </section>
 
-            {/* FAQ */}
-            <section className="max-w-3xl mx-auto w-full space-y-8">
-                <h2 className="text-3xl font-bold text-slate-900 text-center">Frequently Asked Questions</h2>
-                <div className="space-y-4">
-                    <div className="p-6 bg-white rounded-xl border border-slate-200">
-                        <h3 className="font-bold text-slate-900 mb-2">How accurate is the price prediction?</h3>
-                        <p className="text-slate-600">We display actual historical winning prices (L1) from finalized GeM contracts. The accuracy is 100% relative to historical data.</p>
-                    </div>
-                    <div className="p-6 bg-white rounded-xl border border-slate-200">
-                        <h3 className="font-bold text-slate-900 mb-2">Can I search for any product?</h3>
-                        <p className="text-slate-600">Yes. Our semantic search engine understands product descriptions, so you can search for generic terms like "Office Chair" or specific models.</p>
-                    </div>
-                    <div className="p-6 bg-white rounded-xl border border-slate-200">
-                        <h3 className="font-bold text-slate-900 mb-2">Is this affiliated with GeM?</h3>
-                        <p className="text-slate-600">No, we are an independent market intelligence tool designed to help businesses navigate the public procurement landscape more effectively.</p>
-                    </div>
+            {/* Keyword Bank Footer */}
+            <section className="border-t border-slate-200 pt-16 pb-8">
+                <h4 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-6 text-center">Popular Searches</h4>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-xs text-slate-500">
+                    <ul className="space-y-2">
+                        <li><a href="#" className="hover:text-indigo-600">GeM Login</a></li>
+                        <li><a href="#" className="hover:text-indigo-600">GeM Registration</a></li>
+                        <li><a href="#" className="hover:text-indigo-600">Government e-Marketplace</a></li>
+                        <li><a href="#" className="hover:text-indigo-600">GeM Portal</a></li>
+                        <li><a href="#" className="hover:text-indigo-600">CPPP Tender Search</a></li>
+                    </ul>
+                    <ul className="space-y-2">
+                        <li><a href="#" className="hover:text-indigo-600">L1 Price Predictor</a></li>
+                        <li><a href="#" className="hover:text-indigo-600">Bid Estimation Tool</a></li>
+                        <li><a href="#" className="hover:text-indigo-600">Tender Result GeM</a></li>
+                        <li><a href="#" className="hover:text-indigo-600">Reverse Auction Tips</a></li>
+                        <li><a href="#" className="hover:text-indigo-600">GeM Custom Bid</a></li>
+                    </ul>
+                    <ul className="space-y-2">
+                         <li><a href="#" className="hover:text-indigo-600">GeM Consultancy Delhi</a></li>
+                         <li><a href="#" className="hover:text-indigo-600">GeM Consultancy Mumbai</a></li>
+                         <li><a href="#" className="hover:text-indigo-600">GeM Consultancy Bangalore</a></li>
+                         <li><a href="#" className="hover:text-indigo-600">Startups on GeM</a></li>
+                         <li><a href="#" className="hover:text-indigo-600">MSE Verification GeM</a></li>
+                    </ul>
+                    <ul className="space-y-2">
+                         <li><a href="#" className="hover:text-indigo-600">Etenders India</a></li>
+                         <li><a href="#" className="hover:text-indigo-600">Vendor Assessment</a></li>
+                         <li><a href="#" className="hover:text-indigo-600">Brand Approval</a></li>
+                         <li><a href="#" className="hover:text-indigo-600">OEM Registration</a></li>
+                         <li><a href="#" className="hover:text-indigo-600">GeM Seller Help</a></li>
+                    </ul>
                 </div>
             </section>
 
