@@ -15,6 +15,21 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Predict GeM Bid Prices & Win Contracts | gembid.help | #1 GeM Intelligence Tool",
   description: "Don't guess. Win contracts. We indexed the entire GeM portal to predict winning bid prices using advanced AI. Stop losing profit and start winning Government e-Marketplace tenders today.",
+  applicationName: 'gembid.help',
+  authors: [{ name: 'Pratham Garg', url: 'https://gembid.help' }],
+  generator: 'Next.js',
+  referrer: 'origin-when-cross-origin',
+  creator: 'Pratham Garg',
+  publisher: 'gembid.help',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  metadataBase: new URL('https://gembid.help'),
+  alternates: {
+    canonical: '/',
+  },
   keywords: [
     "GeM", "Government e-Marketplace", "GeM Bid Price", "Predict GeM Bids", 
     "Win GeM Tenders", "GeM Consultancy", "GeM Portal Search", 
@@ -24,14 +39,16 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Win More GeM Tenders with AI Price Prediction",
     description: "Stop guessing L1 prices. Use our AI to find the exact winning price for any item on the Government e-Marketplace.",
-    type: "website",
-    locale: "en_IN",
-    siteName: "gembid.help",
+    url: 'https://gembid.help',
+    siteName: 'gembid.help',
+    locale: 'en_IN',
+    type: 'website',
   },
   twitter: {
     card: "summary_large_image",
     title: "Predict GeM Bid Prices Instantly",
     description: "The only tool you need to win Government e-Marketplace contracts. AI-powered bid intelligence.",
+    creator: "@prathamgarg",
   },
   robots: {
     index: true,
@@ -44,6 +61,11 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  // Geo-Tags for Local SEO (India)
+  other: {
+    'geo.region': 'IN',
+    'geo.placename': 'India',
+  }
 };
 
 export default function RootLayout({
@@ -55,6 +77,7 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "gembid.help",
+    "url": "https://gembid.help",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Web",
     "offers": {
@@ -67,6 +90,24 @@ export default function RootLayout({
       "@type": "AggregateRating",
       "ratingValue": "4.9",
       "ratingCount": "1250"
+    }
+  };
+
+  const orgLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "gembid.help",
+    "url": "https://gembid.help",
+    "logo": "https://gembid.help/icon.png",
+    "sameAs": [
+      "https://github.com/PrathamGarg1/gemjsr"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+91-0000000000",
+      "contactType": "sales",
+      "areaServed": "IN",
+      "availableLanguage": "en"
     }
   };
 
@@ -103,6 +144,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgLd) }}
         />
         <script
           type="application/ld+json"
