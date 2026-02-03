@@ -96,7 +96,7 @@ export function SearchApp() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
-            className="mt-[-70px] w-full max-w-4xl mx-auto mb-24 relative rounded-3xl border border-slate-100 p-2 bg-white/5"
+            className="mb-[-70px] mt-[-70px] w-full max-w-4xl mx-auto mb-24 relative rounded-3xl border border-slate-100 p-2 bg-white/5"
         >
            <GlowingEffect
               spread={40}

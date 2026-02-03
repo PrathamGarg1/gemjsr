@@ -57,7 +57,7 @@ export default function Home() {
         <SearchApp />
         
         <div 
-            className="w-full my-16 py-[-20px] max-w-4xl mx-auto relative rounded-2xl bg-gradient-to-br from-indigo-500/30 via-purple-500/30 to-indigo-500/30 shadow-2xl shadow-indigo-500/20"
+            className="w-full my-16 pt-[-20px]  max-w-4xl mx-auto relative rounded-2xl bg-gradient-to-br from-indigo-500/30 via-purple-500/30 to-indigo-500/30 shadow-2xl shadow-indigo-500/20"
           >
             {/* BEFORE & AFTER TRANSFORMATION */}
             <div className="max-w-6xl mx-auto px-4 -mt-6 mb-24 relative z-20">
@@ -159,7 +159,7 @@ export default function Home() {
             
              
              {/* TRUST GRID (PERSONAS) */}
-             <section className="mb-24">
+             <section className="mb-24 mt-14">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl font-bold text-slate-900 mb-4">Built for Every Government Bidder</h2>
                     <p className="text-xl text-slate-600">From construction sites to design studios, India's top professionals rely on us.</p>
@@ -424,15 +424,12 @@ export default function Home() {
                          Don't waste time figuring it out. Our verified GeM experts in Delhi can handle everything—from <strong>Brand Approval</strong> to <strong>Tender Bidding</strong>.
                      </p>
                      <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-                         <Link href="/consultancy" className="inline-flex h-12 items-center justify-center rounded-full bg-white px-8 text-sm font-bold text-slate-900 shadow-lg hover:bg-slate-100 transition-colors">
-                             Hire GeM Consultant
-                         </Link>
-                         <a href="tel:+919876543210" className="inline-flex h-12 items-center justify-center rounded-full border border-slate-700 bg-transparent px-8 text-sm font-bold text-white hover:bg-slate-800 transition-colors">
-                             Call +91-98765-43210
+                         <a href="mailto:gragprathamofficial@gmail.com" className="inline-flex h-12 items-center justify-center rounded-full bg-white px-8 text-sm font-bold text-slate-900 shadow-lg hover:bg-slate-100 transition-colors">
+                            Email: gragprathamofficial@gmail.com
                          </a>
                      </div>
                      <p className="text-xs text-slate-500 mt-4">
-                         Trusted by 500+ OEMs and Resellers across India.
+                         Or fill the <strong>100% Refund Form</strong> above if you are not satisfied.
                      </p>
                  </div>
              </section>
