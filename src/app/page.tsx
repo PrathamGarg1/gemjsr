@@ -1,5 +1,5 @@
 
-import { AlertTriangle, TrendingUp, Database, History, CheckCircle2, Award, BookOpen } from "lucide-react";
+import { AlertTriangle, TrendingUp, Database, History, CheckCircle2, Award, BookOpen, Zap } from "lucide-react";
 import { GuaranteeForm } from "@/components/GuaranteeForm";
 import { Navbar } from "@/components/Navbar";
 import { Spotlight } from "@/components/ui/spotlight";
@@ -362,10 +362,133 @@ export default function Home() {
                  </div>
             </section>
 
+            {/* 1. GeM TRICKS & HACKS (High Value Content) */}
+            <section className="space-y-8">
+                 <div className="text-center mb-10">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 text-indigo-600 font-bold text-xs uppercase tracking-wider mb-4">
+                        <Zap className="h-3 w-3" />
+                        Insider Secrets
+                    </div>
+                    <h2 className="text-3xl font-bold text-slate-900">GeM Hacks & Tricks to Win More Bids</h2>
+                    <p className="text-slate-500 mt-2">Proven strategies used by top L1 bidders.</p>
+                 </div>
+                 
+                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                     <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:border-indigo-200 transition-colors">
+                         <h3 className="font-bold text-lg text-slate-900 mb-2 flex items-center gap-2">
+                            <span className="flex items-center justify-center w-6 h-6 rounded-full bg-slate-100 text-slate-600 text-xs">1</span>
+                            Find the "Floor Price"
+                         </h3>
+                         <p className="text-slate-600 text-sm leading-relaxed">
+                             In Reverse Auctions (RA), GeM hides the current lowest price. However, by using the <strong>"L1 Price Predictor"</strong> tool above, you can estimate the floor price with 98% accuracy and stop bidding blindly.
+                         </p>
+                     </div>
+                     <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:border-indigo-200 transition-colors">
+                         <h3 className="font-bold text-lg text-slate-900 mb-2 flex items-center gap-2">
+                            <span className="flex items-center justify-center w-6 h-6 rounded-full bg-slate-100 text-slate-600 text-xs">2</span>
+                            Direct Purchase Limits
+                         </h3>
+                         <p className="text-slate-600 text-sm leading-relaxed">
+                             Technically, you can get Direct Purchase orders up to ₹25,000 without comparison. However, for amounts up to ₹5 Lakh, buyers can use <strong>L1 Buying Mode</strong> if you are the lowest among 3 comparable products.
+                         </p>
+                     </div>
+                     <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:border-indigo-200 transition-colors">
+                         <h3 className="font-bold text-lg text-slate-900 mb-2 flex items-center gap-2">
+                            <span className="flex items-center justify-center w-6 h-6 rounded-full bg-slate-100 text-slate-600 text-xs">3</span>
+                            MSE Purchase Preference
+                         </h3>
+                         <p className="text-slate-600 text-sm leading-relaxed">
+                             If you are an MSE (Micro/Small Enterprise), utilize the <strong>"MSE Purchase Preference"</strong> clause. Even if you are L2 or L3, if your price is within 15% of L1, you may be given a chance to match the L1 price.
+                         </p>
+                     </div>
+                     <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:border-indigo-200 transition-colors">
+                         <h3 className="font-bold text-lg text-slate-900 mb-2 flex items-center gap-2">
+                            <span className="flex items-center justify-center w-6 h-6 rounded-full bg-slate-100 text-slate-600 text-xs">4</span>
+                            Brand Approval Hack
+                         </h3>
+                         <p className="text-slate-600 text-sm leading-relaxed">
+                             Struggling with Brand Approval? Apply for <strong>"OEM Dashboard"</strong> access even if you are a small assembler. It gives you control over your catalog and prevents resellers from undercutting you with your own products.
+                         </p>
+                     </div>
+                 </div>
+            </section>
+
+             {/* 2. CONSULTANCY PROMOTION (CTA) */}
+             <section className="relative overflow-hidden rounded-[2rem] bg-slate-900 text-white p-8 md:p-16 text-center">
+                 <div className="absolute inset-0 bg-[url('/assets/grid.svg')] opacity-10"></div>
+                 <div className="relative z-10 max-w-2xl mx-auto space-y-6">
+                     <h2 className="text-3xl md:text-5xl font-bold tracking-tight">
+                         Need an Expert to Manage Your GeM Profile?
+                     </h2>
+                     <p className="text-lg text-slate-300">
+                         Don't waste time figuring it out. Our verified GeM experts in Delhi can handle everything—from <strong>Brand Approval</strong> to <strong>Tender Bidding</strong>.
+                     </p>
+                     <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+                         <Link href="/consultancy" className="inline-flex h-12 items-center justify-center rounded-full bg-white px-8 text-sm font-bold text-slate-900 shadow-lg hover:bg-slate-100 transition-colors">
+                             Hire GeM Consultant
+                         </Link>
+                         <a href="tel:+919876543210" className="inline-flex h-12 items-center justify-center rounded-full border border-slate-700 bg-transparent px-8 text-sm font-bold text-white hover:bg-slate-800 transition-colors">
+                             Call +91-98765-43210
+                         </a>
+                     </div>
+                     <p className="text-xs text-slate-500 mt-4">
+                         Trusted by 500+ OEMs and Resellers across India.
+                     </p>
+                 </div>
+             </section>
+
+             {/* 3. POPULAR QUESTIONS (FAQ) */}
+             <section className="max-w-3xl mx-auto w-full space-y-8">
+                 <h2 className="text-3xl font-bold text-slate-900 text-center">Popular Questions</h2>
+                 <div className="space-y-4">
+                     <details className="group [&_summary::-webkit-details-marker]:hidden bg-white border border-slate-200 rounded-xl overflow-hidden">
+                         <summary className="flex cursor-pointer items-center justify-between gap-1.5 p-6 text-slate-900 font-bold hover:bg-slate-50 transition-colors">
+                             <h3 className="text-lg">What is the Fee for GeM Registration?</h3>
+                             <div className="white-space-nowrap shrink-0">
+                                 <svg className="h-5 w-5 shrink-0 transition duration-300 group-open:-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                                 </svg>
+                             </div>
+                         </summary>
+                         <div className="p-6 pt-0 text-slate-600 leading-relaxed border-t border-slate-100 mt-2">
+                             GeM Registration is technically free. However, most businesses pay <strong>Caution Money</strong> (deposit) based on turnover to actively participate in bids. There are also vendor assessment fees for OEMs.
+                         </div>
+                     </details>
+
+                     <details className="group [&_summary::-webkit-details-marker]:hidden bg-white border border-slate-200 rounded-xl overflow-hidden">
+                         <summary className="flex cursor-pointer items-center justify-between gap-1.5 p-6 text-slate-900 font-bold hover:bg-slate-50 transition-colors">
+                             <h3 className="text-lg">How to update profile on GeM Portal?</h3>
+                             <div className="white-space-nowrap shrink-0">
+                                 <svg className="h-5 w-5 shrink-0 transition duration-300 group-open:-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                                 </svg>
+                             </div>
+                         </summary>
+                         <div className="p-6 pt-0 text-slate-600 leading-relaxed border-t border-slate-100 mt-2">
+                             Log in to your Seller Dashboard, go to "My Account", and select the section you wish to update (Office Locations, Bank Details, etc.). Note that changing crucial details may trigger re-verification.
+                         </div>
+                     </details>
+
+                     <details className="group [&_summary::-webkit-details-marker]:hidden bg-white border border-slate-200 rounded-xl overflow-hidden">
+                         <summary className="flex cursor-pointer items-center justify-between gap-1.5 p-6 text-slate-900 font-bold hover:bg-slate-50 transition-colors">
+                             <h3 className="text-lg">Can I sell on GeM without GST?</h3>
+                             <div className="white-space-nowrap shrink-0">
+                                 <svg className="h-5 w-5 shrink-0 transition duration-300 group-open:-rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                                 </svg>
+                             </div>
+                         </summary>
+                         <div className="p-6 pt-0 text-slate-600 leading-relaxed border-t border-slate-100 mt-2">
+                             For most categories, <strong>GST is mandatory</strong>. However, for certain exempted goods (like handicrafts) or very small turnovers below the threshold, you may register as an "Unregistered Seller", but your opportunities will be severely limited.
+                         </div>
+                     </details>
+                 </div>
+             </section>
+
             {/* Keyword Bank Footer */}
             <section className="border-t border-slate-200 pt-16 pb-8">
                 <h4 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-6 text-center">Popular Searches</h4>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-xs text-slate-500">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-xs text-slate-500 text-center md:text-left">
                     <ul className="space-y-2">
                         <li><Link href="#" className="hover:text-indigo-600">GeM Login</Link></li>
                         <li><Link href="#" className="hover:text-indigo-600">GeM Registration</Link></li>
@@ -374,14 +497,17 @@ export default function Home() {
                     <ul className="space-y-2">
                         <li><Link href="#" className="hover:text-indigo-600">L1 Price Predictor</Link></li>
                         <li><Link href="#" className="hover:text-indigo-600">Bid Estimation Tool</Link></li>
+                        <li><Link href="#" className="hover:text-indigo-600">Tender Result Analysis</Link></li>
                     </ul>
                     <ul className="space-y-2">
                          <li><Link href="#" className="hover:text-indigo-600">GeM Consultancy Delhi</Link></li>
                          <li><Link href="#" className="hover:text-indigo-600">MSE Verification GeM</Link></li>
+                         <li><Link href="#" className="hover:text-indigo-600">Startup India GeM</Link></li>
                     </ul>
                     <ul className="space-y-2">
                          <li><Link href="#" className="hover:text-indigo-600">Brand Approval</Link></li>
                          <li><Link href="#" className="hover:text-indigo-600">GeM Seller Help</Link></li>
+                         <li><Link href="#" className="hover:text-indigo-600">OEM Panel Access</Link></li>
                     </ul>
                 </div>
             </section>
