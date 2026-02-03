@@ -1,116 +1,22 @@
-"use client";
 
-import { useState, useEffect } from "react";
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell, CartesianGrid } from 'recharts';
-import { motion, AnimatePresence } from "framer-motion";
-import { Search, Loader2, Copy, ExternalLink, SlidersHorizontal, Sparkles, TrendingUp, ShieldCheck, Zap, Database, CheckCircle2, ChevronRight, BookOpen, HelpCircle, AlertTriangle, ArrowRight, History, Quote, User, Award } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Badge } from "@/components/ui/badge";
+import { AlertTriangle, TrendingUp, Database, History, CheckCircle2, Award, BookOpen } from "lucide-react";
 import { GuaranteeForm } from "@/components/GuaranteeForm";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
 import { Navbar } from "@/components/Navbar";
 import { Spotlight } from "@/components/ui/spotlight";
 import { BackgroundBeams } from "@/components/ui/background-beams";
-import Link from "next/link"; // Correct import for Link
-import { GlowingEffect } from "@/components/ui/glowing-effect";
-
-interface ResultItem {
-  item: string;
-  qty: number;
-  prc: number;
-  relevance_score: number;
-  c_no: string;
-  b_no: string;
-}
-
-const analyticsData = [
-  { name: 'Marine Fuels', value: 3359, color: '#4f46e5' },
-  { name: 'Passenger Cars', value: 2018, color: '#8b5cf6' },
-  { name: 'Desktop Computers', value: 1510, color: '#ec4899' },
-  { name: 'Silicomanganese', value: 1173, color: '#06b6d4' },
-  { name: 'Buses', value: 962, color: '#10b981' },
-];
+import Link from "next/link";
+import Image from "next/image";
+import { SearchApp } from "@/components/home/SearchApp";
+import { MarketIntelligence } from "@/components/home/MarketIntelligence";
 
 export default function Home() {
-  const [query, setQuery] = useState("");
-  const [topK, setTopK] = useState("10");
-  const [results, setResults] = useState<ResultItem[]>([]);
-  const [loading, setLoading] = useState(false);
-  const [searched, setSearched] = useState(false);
-  const [copiedId, setCopiedId] = useState<string | null>(null);
-  const [loadingStep, setLoadingStep] = useState(0);
-  
-  const loadingTexts = [
-    "Indexing 10M+ Tenders from GeM Portal...",
-    "Analyzing Competitor Bids & L1 History...",
-    "Calculating Probability of Winning...",
-    "Generative AI preparing insights...",
-    "Finalizing Results..."
-  ];
-
-  useEffect(() => {
-    if (loading) {
-      const interval = setInterval(() => {
-        setLoadingStep((prev) => (prev + 1) % loadingTexts.length);
-      }, 1200);
-      return () => clearInterval(interval);
-    } else {
-      setLoadingStep(0);
-    }
-  }, [loading]);
-
-  const handleSearch = async (e?: React.FormEvent) => {
-    e?.preventDefault();
-    if (!query.trim()) return;
-
-    setLoading(true);
-    setSearched(true);
-    setResults([]);
-
-    try {
-      const res = await fetch("/api/search", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ item_name: query, k: parseInt(topK) }),
-      });
-      const data = await res.json();
-      if (data.results) {
-        setResults(data.results);
-      }
-    } catch (err) {
-      console.error(err);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const copyToClipboard = (text: string) => {
-    navigator.clipboard.writeText(text);
-    setCopiedId(text);
-    setTimeout(() => setCopiedId(null), 2000);
-  };
-
-  const openGemBid = (b_no: string) => {
-    copyToClipboard(b_no);
-    alert(`Bid Number copied: ${b_no}\n\nPaste it in the GeM search box.`);
-    window.open(`https://bidplus.gem.gov.in/all-bids`, '_blank');
-  };
-
   return (
-    <div className="min-h-screen w-full bg-slate-50 text-slate-900 font-sans selection:bg-indigo-100 selection:text-indigo-900 overflow-x-hidden z-100">
+    <div className="relative min-h-screen w-full bg-slate-50 text-slate-900 font-sans selection:bg-indigo-100 selection:text-indigo-900 overflow-x-hidden z-100">
       <Navbar />
       
       {/* Background Effects */}
-      <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="#4f46e5" />
-      <Spotlight className="h-[80vh] w-[50vw] top-10 left-full" fill="purple" />
+      <Spotlight className="hidden md:block -top-40 left-0 md:left-60 md:-top-20" fill="#4f46e5" />
+      <Spotlight className="hidden md:block h-[80vh] w-[50vw] top-10 left-full" fill="purple" />
       
       <div className="fixed inset-0 -z-20 h-full w-full bg-white bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"></div>
 
@@ -137,73 +43,18 @@ export default function Home() {
             Win <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-600">GeM Contracts</span> <br/>
             with L1 Price Prediction
           </h1>
-          <p className="text-xl text-slate-600 max-w-2xl mx-auto mb-10 leading-relaxed font-normal">
+          <div className="text-xl text-slate-600 max-w-2xl mx-auto mb-10 leading-relaxed font-normal">
             Our AI analyzes millions of GeM Tenders to predict the exact winning (L1) price at which you can win the BID and get the contract.
-          <div className="flex justify-center gap-4 mt-">
-            <div className="text-indigo-600 font-semibold hover:underline  text-xl">Simple.</div>
-            <div className="text-indigo-600 font-semibold hover:underline text-xl">Free.</div>
-            <div className="text-indigo-600 font-semibold hover:underline text-xl">Proven.</div>
+            <div className="flex justify-center gap-4 mt-4">
+                <div className="text-indigo-600 font-semibold hover:underline  text-xl">Simple.</div>
+                <div className="text-indigo-600 font-semibold hover:underline text-xl">Free.</div>
+                <div className="text-indigo-600 font-semibold hover:underline text-xl">Proven.</div>
+            </div>
           </div>
-          </p>
         </div>
 
-        {/* Search App */}
-       
-        <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
-            className="mt-[-70px] w-full max-w-4xl mx-auto mb-24 relative rounded-3xl border border-slate-100 p-2 bg-white/5"
-        >
-           <GlowingEffect
-              spread={40}
-              glow={true}
-              disabled={false}
-              proximity={64}
-              inactiveZone={0.01}
-            />
-          <div className="relative bg-white/90 backdrop-blur-xl rounded-2xl p-2 border border-slate-50 shadow-sm">
-            <form onSubmit={handleSearch} className="flex flex-col md:flex-row gap-2 relative z-20">
-              <div className="relative flex-grow">
-                <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-400" />
-                <Input
-                  className="w-full pl-12 h-14 text-lg border-none shadow-none focus-visible:ring-0 bg-transparent placeholder:text-slate-400 text-slate-900"
-                  placeholder="e.g., 'Core i7 Laptop' (Search Historical Prices)"
-                  value={query}
-                  onChange={(e) => setQuery(e.target.value)}
-                />
-              </div>
-
-              <div className="flex items-center gap-2 px-2 md:border-l border-slate-100">
-                 <div className="flex items-center gap-2 px-3 py-2 bg-slate-50 rounded-lg whitespace-nowrap border border-slate-200/60">
-                   <SlidersHorizontal className="h-4 w-4 text-slate-400" />
-                   <span className="text-sm font-medium text-slate-500">Limit:</span>
-                   <Select value={topK} onValueChange={setTopK}>
-                    <SelectTrigger className="h-8 w-[60px] border-0 bg-transparent focus:ring-0 p-0 text-slate-900 font-bold shadow-none">
-                      <SelectValue placeholder="10" />
-                    </SelectTrigger>
-                    <SelectContent className="bg-white border-slate-100 text-slate-900 shadow-xl">
-                      <SelectItem value="5" className="focus:bg-slate-50">5</SelectItem>
-                      <SelectItem value="10" className="focus:bg-slate-50">10</SelectItem>
-                      <SelectItem value="20" className="focus:bg-slate-50">20</SelectItem>
-                      <SelectItem value="50" className="focus:bg-slate-50">50</SelectItem>
-                    </SelectContent>
-                  </Select>
-                 </div>
-              </div>
-
-
-              <Button 
-                size="lg" 
-                type="submit"
-                disabled={loading}
-                className="h-14 px-8 rounded-xl bg-slate-900 text-white hover:bg-slate-800 font-bold shadow-lg shadow-slate-900/20 transition-all text-base"
-              >
-                {loading ? <Loader2 className="h-5 w-5 animate-spin" /> : "Analyze"}
-              </Button>
-            </form>
-          </div>
-        </motion.div>
+        {/* Search App (Interactive Component) */}
+        <SearchApp />
         
         <div 
             className="w-full my-16 py-[-20px] max-w-4xl mx-auto relative rounded-2xl bg-gradient-to-br from-indigo-500/30 via-purple-500/30 to-indigo-500/30 shadow-2xl shadow-indigo-500/20"
@@ -218,7 +69,7 @@ export default function Home() {
                                 The Old Way
                              </div>
                              <div className="mt-8 mb-6 relative aspect-video rounded-xl overflow-hidden shadow-inner border border-slate-300 grayscale-[0.5]">
-                                <img src="/assets/struggling_bidder.png" alt="Stressed Contractor" className="object-cover w-full h-full opacity-90 transition-opacity hover:opacity-100" />
+                                <Image src="/assets/struggling_bidder.png" alt="Stressed Contractor" fill className="object-cover opacity-90 transition-opacity hover:opacity-100" />
                                 <div className="absolute inset-0 bg-indigo-900/10 mix-blend-multiply"></div>
                              </div>
                              <h3 className="text-xl font-bold text-slate-800 mb-4 flex items-center gap-2">
@@ -252,7 +103,7 @@ export default function Home() {
                                 The AI Way
                              </div>
                              <div className="mt-8 mb-6 relative aspect-video rounded-xl overflow-hidden shadow-2xl shadow-indigo-200 border border-indigo-100 ring-4 ring-white">
-                                <img src="/assets/happy_mobile_bidder.png" alt="Happy Contractor" className="object-cover w-full h-full transform transition-transform hover:scale-105 duration-700" />
+                                <Image src="/assets/happy_mobile_bidder.png" alt="Happy Contractor" fill className="object-cover transform transition-transform hover:scale-105 duration-700" />
                              </div>
                              <h3 className="text-xl font-bold text-indigo-900 mb-4 flex items-center gap-2">
                                 <span className="text-2xl">🚀</span> Verified Profits
@@ -303,156 +154,9 @@ export default function Home() {
             </div>
             </div>
 
-        {/* Premium Loader Overlay */}
-        <AnimatePresence>
-            {loading && (
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
-                    className="w-full max-w-2xl mx-auto mb-16 text-center"
-                >
-                    <div className="relative w-full h-2 bg-slate-200 rounded-full overflow-hidden mb-6">
-                        <motion.div 
-                            className="absolute top-0 left-0 h-full bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-500"
-                            animate={{ x: ["-100%", "100%"] }}
-                            transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }}
-                            style={{ width: "50%" }}
-                        />
-                    </div>
-                    <motion.div
-                        key={loadingStep}
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 1.05 }}
-                        className="text-xl md:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600"
-                    >
-                        {loadingTexts[loadingStep]}
-                    </motion.div>
-                </motion.div>
-            )}
-        </AnimatePresence>
-
-        {/* Results Section */}
-        <div className="w-full max-w-6xl mb-32">
-            <AnimatePresence>
-            {searched && (
-                <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="space-y-6"
-                >
-                <div className="flex items-center justify-between px-2">
-                    <h3 className="text-sm font-semibold text-slate-500 uppercase tracking-widest">
-                    Found {results.length} historical records
-                    </h3>
-                </div>
-
-                {results.length > 0 ? (
-                    <div className="bg-white/80 backdrop-blur-md border border-slate-200/60 rounded-2xl overflow-hidden shadow-xl shadow-slate-200/40">
-                    <Table>
-                        <TableHeader className="bg-slate-50/50 border-b border-slate-100">
-                        <TableRow className="hover:bg-slate-50/80 border-slate-100">
-                            <TableHead className="w-[60px] text-slate-400 font-medium">ID</TableHead>
-                            <TableHead className="font-semibold text-slate-700">Item Description</TableHead>
-                            <TableHead className="font-semibold text-slate-700">Contract / Bid No.</TableHead>
-                            <TableHead className="w-[150px] text-right font-semibold text-slate-700">Winning Price</TableHead>
-                            <TableHead className="w-[80px] text-right font-semibold text-slate-700">Qty</TableHead>
-                            <TableHead className="w-[100px] text-center font-semibold text-slate-700">Match</TableHead>
-                            <TableHead className="w-[100px] text-right font-semibold text-slate-700">Actions</TableHead>
-                        </TableRow>
-                        </TableHeader>
-                        <TableBody>
-                        {results.map((item, index) => (
-                            <TableRow key={index} className="group hover:bg-slate-50/80 border-slate-100 transition-colors">
-                            <TableCell className="text-xs text-slate-400 font-mono text-center">
-                                {(index + 1).toString().padStart(2, '0')}
-                            </TableCell>
-                            <TableCell className="font-medium text-slate-700 max-w-[200px] truncate" title={item.item}>
-                                {item.item}
-                            </TableCell>
-                            <TableCell>
-                                <div className="space-y-1">
-                                    <div className="flex items-center gap-1">
-                                        <Badge variant="outline" className="font-mono text-[10px] text-slate-500 bg-slate-50 px-1 py-0 h-5">
-                                            BID
-                                        </Badge>
-                                        <span className="text-xs font-mono text-slate-600 select-all cursor-pointer hover:text-indigo-600" onClick={() => copyToClipboard(item.b_no)}>
-                                            {item.b_no}
-                                        </span>
-                                    </div>
-                                    {item.c_no && item.c_no !== "N/A" && (
-                                         <div className="flex items-center gap-1">
-                                            <Badge variant="outline" className="font-mono text-[10px] text-sky-600 bg-sky-50 border-sky-200 px-1 py-0 h-5">
-                                                CON
-                                            </Badge>
-                                            <a 
-                                                href="https://gem.gov.in/view_contracts" 
-                                                target="_blank" 
-                                                rel="noopener noreferrer"
-                                                onClick={(e) => {
-                                                    // Optional: Copy on click but let the link open
-                                                    navigator.clipboard.writeText(item.c_no);
-                                                    e.stopPropagation();
-                                                }}
-                                                className="text-xs font-mono text-sky-600 hover:underline select-all"
-                                                title="Click to open GeM (Copy ID first)"
-                                            >
-                                                {item.c_no}
-                                            </a>
-                                         </div>
-                                    )}
-                                </div>
-                            </TableCell>
-                            <TableCell className="text-right font-mono text-slate-600">
-                                {new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(item.prc)}
-                            </TableCell>
-                            <TableCell className="text-right text-slate-600 text-xs">
-                                {item.qty}
-                            </TableCell>
-                            <TableCell className="text-center">
-                                <div className="flex justify-center">
-                                    <Badge variant="secondary" className={`
-                                        border-0 backdrop-blur-md shadow-sm
-                                    ${item.relevance_score > 0.8 ? 'bg-emerald-50 text-emerald-700 ring-1 ring-emerald-600/20' : 
-                                        item.relevance_score > 0.5 ? 'bg-amber-50 text-amber-700 ring-1 ring-amber-600/20' :
-                                        'bg-slate-100 text-slate-600 ring-1 ring-slate-200'}
-                                    `}>
-                                    {(item.relevance_score * 10).toFixed(1)}%
-                                    </Badge>
-                                </div>
-                            </TableCell>
-                            <TableCell className="text-right">
-                                <div className="flex items-center justify-end gap-2 opacity-50 group-hover:opacity-100 transition-opacity">
-                                <Button variant="ghost" size="icon" className="h-8 w-8 text-slate-400 hover:text-indigo-600 hover:bg-indigo-50" onClick={() => copyToClipboard(item.b_no)}>
-                                    {copiedId === item.b_no ? <span className="text-emerald-600 font-bold text-xs">✓</span> : <Copy className="h-4 w-4" />}
-                                </Button>
-                                <Button variant="ghost" size="icon" className="h-8 w-8 text-slate-400 hover:text-indigo-600 hover:bg-indigo-50" onClick={() => openGemBid(item.b_no)}>
-                                    <ExternalLink className="h-4 w-4" />
-                                </Button>
-                                </div>
-                            </TableCell>
-                            </TableRow>
-                        ))}
-                        </TableBody>
-                    </Table>
-                    </div>
-                ) : (
-                    !loading && (
-                        <div className="text-center py-20 bg-white/50 rounded-2xl border border-dashed border-slate-200">
-                        <p className="text-slate-400">No historical records found for this query.</p>
-                        </div>
-                    )
-                )}
-                </motion.div>
-            )}
-            </AnimatePresence>
-        </div>
-
         {/* --- ULTIMATE SEO CONTENT --- */}
         <div className="my-[-10rem] w-full max-w-5xl space-y-32 z-20 " >
             
-
              
              {/* TRUST GRID (PERSONAS) */}
              <section className="mb-24">
@@ -464,7 +168,7 @@ export default function Home() {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {/* Persona 1: Construction */}
                     <div className="group relative rounded-2xl overflow-hidden aspect-[4/5] shadow-lg">
-                        <img src="/assets/site_engineer.png" alt="Civil Engineer" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                        <Image src="/assets/site_engineer.png" alt="Civil Engineer" fill className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
                         <div className="absolute bottom-0 left-0 p-8 text-white">
                             <h3 className="text-2xl font-bold mb-1">Construction</h3>
@@ -478,7 +182,7 @@ export default function Home() {
 
                     {/* Persona 2: Consultant */}
                     <div className="group relative rounded-2xl overflow-hidden aspect-[4/5] shadow-lg">
-                        <img src="/assets/female_architect.png" alt="Architect" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                        <Image src="/assets/female_architect.png" alt="Architect" fill className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
                         <div className="absolute bottom-0 left-0 p-8 text-white">
                             <h3 className="text-2xl font-bold mb-1">Consultants</h3>
@@ -492,7 +196,7 @@ export default function Home() {
 
                      {/* Persona 3: MSME */}
                     <div className="group relative rounded-2xl overflow-hidden aspect-[4/5] shadow-lg">
-                        <img src="/assets/sme_owner.png" alt="SME Owner" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                        <Image src="/assets/sme_owner.png" alt="SME Owner" fill className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
                         <div className="absolute bottom-0 left-0 p-8 text-white">
                             <h3 className="text-2xl font-bold mb-1">MSMEs</h3>
@@ -586,16 +290,13 @@ export default function Home() {
                 </div>
             </section>
 
-           
-            
-
          
 
              <section className="mb-32">
                  <h2 className="text-3xl font-bold text-slate-900 text-center mb-12">Trusted by 12,000+ Contractors</h2>
                  <div className="relative rounded-3xl overflow-hidden bg-slate-900 border border-slate-800 shadow-2xl">
                      <div className="absolute inset-0 opacity-60">
-                        <img src="/assets/success_hero.png" alt="Successful Contractor" className="w-full h-full object-cover" />
+                        <Image src="/assets/success_hero.png" alt="Successful Contractor" fill className="w-full h-full object-cover" />
                      </div>
                      <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-transparent"></div>
                      
@@ -619,59 +320,8 @@ export default function Home() {
              </section>
 
 
-               {/* MARKET INTELLIGENCE CHART */}
-             <section className="bg-white rounded-[2rem] p-8 md:p-12 border border-slate-200 shadow-xl shadow-slate-200/50">
-                 <div className="flex flex-col md:flex-row gap-8 items-center mb-8">
-                     <div className="flex-1 space-y-4">
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 text-indigo-600 font-bold text-xs uppercase tracking-wider">
-                            <TrendingUp className="h-3 w-3" />
-                            Market Intelligence
-                        </div>
-                        <h2 className="text-3xl font-bold text-slate-900">Top Procurement Categories in FY 2025-26</h2>
-                        <p className="text-slate-500 leading-relaxed">
-                            Based on our analysis of over <strong>$4 Billion+</strong> in transaction volume. 
-                            These sectors are seeing the highest government spending right now. 
-                            Position your business to target these high-value opportunities.
-                        </p>
-                        <div className="flex flex-wrap gap-2 pt-2">
-                             <Badge className="bg-slate-100 text-slate-600 hover:bg-slate-200 border-none">Marine Fuels</Badge>
-                             <Badge className="bg-slate-100 text-slate-600 hover:bg-slate-200 border-none">IT Hardware</Badge>
-                             <Badge className="bg-slate-100 text-slate-600 hover:bg-slate-200 border-none">Automotive</Badge>
-                        </div>
-                     </div>
-                     <div className="w-full md:w-1/2 h-[300px]">
-                        <ResponsiveContainer width="100%" height="100%">
-                            <BarChart data={analyticsData} layout="vertical" margin={{ top: 5, right: 30, left: 40, bottom: 5 }}>
-                                <CartesianGrid strokeDasharray="3 3" horizontal={true} vertical={false} stroke="#f1f5f9" />
-                                <XAxis type="number" hide />
-                                <YAxis 
-                                    dataKey="name" 
-                                    type="category" 
-                                    width={100} 
-                                    tick={{fontSize: 11, fill: '#64748b'}} 
-                                    axisLine={false} 
-                                    tickLine={false} 
-                                />
-                                <Tooltip 
-                                    cursor={{fill: '#f8fafc'}}
-                                    contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
-                                />
-                                <Bar dataKey="value" radius={[0, 4, 4, 0]} barSize={32}>
-                                    {analyticsData.map((entry, index) => (
-                                        <Cell key={`cell-${index}`} fill={entry.color} />
-                                    ))}
-                                </Bar>
-                            </BarChart>
-                        </ResponsiveContainer>
-                     </div>
-                 </div>
-                 <div className="p-4 bg-slate-50 rounded-xl border border-slate-100 flex items-start gap-3">
-                    <Zap className="h-5 w-5 text-amber-500 mt-0.5 flex-shrink-0" />
-                    <p className="text-sm text-slate-600">
-                        <strong>Pro Tip:</strong> "Passenger Car" and "Desktop Computer" tenders often have low competition in specific districts. Use our search tool to filter by location (coming soon).
-                    </p>
-                 </div>
-             </section>
+               {/* MARKET INTELLIGENCE CHART (Heavy Component - Isolated) */}
+               <MarketIntelligence />
 
              {/* Top 10 Mistakes */}
              <section className="space-y-8">
