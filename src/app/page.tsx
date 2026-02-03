@@ -2,12 +2,13 @@
 import { AlertTriangle, TrendingUp, Database, History, CheckCircle2, Award, BookOpen, Zap } from "lucide-react";
 import { GuaranteeForm } from "@/components/GuaranteeForm";
 import { Navbar } from "@/components/Navbar";
-import { Spotlight } from "@/components/ui/spotlight";
-import { BackgroundBeams } from "@/components/ui/background-beams";
+import dynamic from 'next/dynamic';
 import Link from "next/link";
 import Image from "next/image";
 import { SearchApp } from "@/components/home/SearchApp";
 import { MarketIntelligence } from "@/components/home/MarketIntelligence";
+
+import { BackgroundEffects } from "@/components/home/BackgroundEffects";
 
 export default function Home() {
   return (
@@ -15,17 +16,9 @@ export default function Home() {
       <Navbar />
       
       {/* Background Effects */}
-      <Spotlight className="hidden md:block -top-40 left-0 md:left-60 md:-top-20" fill="#4f46e5" />
-      <Spotlight className="hidden md:block h-[80vh] w-[50vw] top-10 left-full" fill="purple" />
-      
-      <div className="fixed inset-0 -z-20 h-full w-full bg-white bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"></div>
-
-      <div className="fixed left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-indigo-400 opacity-20 blur-[100px]"></div>
+      <BackgroundEffects />
 
       <main className="relative z-10 w-full pt-32 pb-12 px-4 md:px-6 flex flex-col items-center">
-        
-        {/* BACKGROUND BEAMS - Pushed to back */}
-        <BackgroundBeams className="absolute inset-0 z-0 opacity-50" />
 
         {/* Banner for Official Link */}
         <div className="w-full max-w-4xl mb-8 flex justify-center relative z-10">
@@ -69,7 +62,13 @@ export default function Home() {
                                 The Old Way
                              </div>
                              <div className="mt-8 mb-6 relative aspect-video rounded-xl overflow-hidden shadow-inner border border-slate-300 grayscale-[0.5]">
-                                <Image src="/assets/struggling_bidder.png" alt="Stressed Contractor" fill className="object-cover opacity-90 transition-opacity hover:opacity-100" />
+                                <Image 
+                                    src="/assets/struggling_bidder.png" 
+                                    alt="Stressed Contractor" 
+                                    fill 
+                                    className="object-cover opacity-90 transition-opacity hover:opacity-100" 
+                                    sizes="(max-width: 768px) 100vw, 50vw"
+                                />
                                 <div className="absolute inset-0 bg-indigo-900/10 mix-blend-multiply"></div>
                              </div>
                              <h3 className="text-xl font-bold text-slate-800 mb-4 flex items-center gap-2">
@@ -103,7 +102,13 @@ export default function Home() {
                                 The AI Way
                              </div>
                              <div className="mt-8 mb-6 relative aspect-video rounded-xl overflow-hidden shadow-2xl shadow-indigo-200 border border-indigo-100 ring-4 ring-white">
-                                <Image src="/assets/happy_mobile_bidder.png" alt="Happy Contractor" fill className="object-cover transform transition-transform hover:scale-105 duration-700" />
+                                <Image 
+                                    src="/assets/happy_mobile_bidder.png" 
+                                    alt="Happy Contractor" 
+                                    fill 
+                                    className="object-cover transform transition-transform hover:scale-105 duration-700" 
+                                    sizes="(max-width: 768px) 100vw, 50vw"
+                                />
                              </div>
                              <h3 className="text-xl font-bold text-indigo-900 mb-4 flex items-center gap-2">
                                 <span className="text-2xl">🚀</span> Verified Profits
@@ -168,7 +173,13 @@ export default function Home() {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {/* Persona 1: Construction */}
                     <div className="group relative rounded-2xl overflow-hidden aspect-[4/5] shadow-lg">
-                        <Image src="/assets/site_engineer.png" alt="Civil Engineer" fill className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                        <Image 
+                            src="/assets/site_engineer.png" 
+                            alt="Civil Engineer" 
+                            fill 
+                            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                            sizes="(max-width: 768px) 100vw, 33vw"
+                        />
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
                         <div className="absolute bottom-0 left-0 p-8 text-white">
                             <h3 className="text-2xl font-bold mb-1">Construction</h3>
@@ -182,7 +193,13 @@ export default function Home() {
 
                     {/* Persona 2: Consultant */}
                     <div className="group relative rounded-2xl overflow-hidden aspect-[4/5] shadow-lg">
-                        <Image src="/assets/female_architect.png" alt="Architect" fill className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                        <Image 
+                            src="/assets/female_architect.png" 
+                            alt="Architect" 
+                            fill 
+                            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                             sizes="(max-width: 768px) 100vw, 33vw"
+                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
                         <div className="absolute bottom-0 left-0 p-8 text-white">
                             <h3 className="text-2xl font-bold mb-1">Consultants</h3>
@@ -196,7 +213,13 @@ export default function Home() {
 
                      {/* Persona 3: MSME */}
                     <div className="group relative rounded-2xl overflow-hidden aspect-[4/5] shadow-lg">
-                        <Image src="/assets/sme_owner.png" alt="SME Owner" fill className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                        <Image 
+                            src="/assets/sme_owner.png" 
+                            alt="SME Owner" 
+                            fill 
+                            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                             sizes="(max-width: 768px) 100vw, 33vw"
+                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
                         <div className="absolute bottom-0 left-0 p-8 text-white">
                             <h3 className="text-2xl font-bold mb-1">MSMEs</h3>
@@ -296,7 +319,13 @@ export default function Home() {
                  <h2 className="text-3xl font-bold text-slate-900 text-center mb-12">Trusted by 12,000+ Contractors</h2>
                  <div className="relative rounded-3xl overflow-hidden bg-slate-900 border border-slate-800 shadow-2xl">
                      <div className="absolute inset-0 opacity-60">
-                        <Image src="/assets/success_hero.png" alt="Successful Contractor" fill className="w-full h-full object-cover" />
+                        <Image 
+                            src="/assets/success_hero.png" 
+                            alt="Successful Contractor" 
+                            fill 
+                            className="absolute inset-0 w-full h-full object-cover" 
+                            sizes="(max-width: 768px) 100vw, 100vw"
+                        />
                      </div>
                      <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-transparent"></div>
                      

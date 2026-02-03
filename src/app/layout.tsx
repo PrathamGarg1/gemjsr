@@ -5,12 +5,34 @@ import "./globals.css";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: 'swap',
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: 'swap',
 });
+
+// ... metadata ...
+
+  const orgLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "gembid.help",
+    "url": "https://gembid.help",
+    "logo": "https://gembid.help/icon.png",
+    "sameAs": [
+      "https://github.com/PrathamGarg1/gemjsr"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "gragprathamofficial@gmail.com",
+      "contactType": "sales",
+      "areaServed": "IN",
+      "availableLanguage": "en"
+    }
+  };
 
 export const metadata: Metadata = {
   title: "Predict GeM Bid Prices & Win Contracts | gembid.help | #1 GeM Intelligence Tool",
