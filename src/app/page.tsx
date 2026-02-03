@@ -138,10 +138,12 @@ export default function Home() {
             with L1 Price Prediction
           </h1>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto mb-10 leading-relaxed font-normal">
-            Stop losing bids. Our AI analyzes millions of <strong>Government Tenders in India</strong> to predict the exact winning (L1) price. 
-            Automate your <strong>GeM Bidding Process</strong> and increase your win rate by 400%.
-            <br className="hidden md:block"/>
-            We are the world's first <a href="/prediction-market" className="text-indigo-600 font-semibold hover:underline">Prediction Market for Govt Contracts</a>.
+            Our AI analyzes millions of GeM Tenders to predict the exact winning (L1) price at which you can win the BID and get the contract.
+          <div className="flex justify-center gap-4 mt-">
+            <div className="text-indigo-600 font-semibold hover:underline  text-xl">Simple.</div>
+            <div className="text-indigo-600 font-semibold hover:underline text-xl">Free.</div>
+            <div className="text-indigo-600 font-semibold hover:underline text-xl">Proven.</div>
+          </div>
           </p>
         </div>
 
@@ -151,16 +153,16 @@ export default function Home() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
-            className="w-full max-w-4xl mx-auto mb-24 relative p-[1px] rounded-2xl bg-gradient-to-br from-indigo-500/30 via-purple-500/30 to-indigo-500/30 shadow-2xl shadow-indigo-500/20"
+            className="mt-[-70px] w-full max-w-4xl mx-auto mb-24 relative rounded-3xl border border-slate-100 p-2 bg-white/5"
         >
            <GlowingEffect
-          spread={40}
-          glow={true}
-          disabled={false}
-          proximity={64}
-          inactiveZone={0.01}
-        />
-          <div className="bg-white/90 backdrop-blur-xl rounded-2xl p-2 border border-white/50">
+              spread={40}
+              glow={true}
+              disabled={false}
+              proximity={64}
+              inactiveZone={0.01}
+            />
+          <div className="relative bg-white/90 backdrop-blur-xl rounded-2xl p-2 border border-slate-50 shadow-sm">
             <form onSubmit={handleSearch} className="flex flex-col md:flex-row gap-2 relative z-20">
               <div className="relative flex-grow">
                 <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-400" />
