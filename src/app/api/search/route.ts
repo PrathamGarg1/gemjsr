@@ -8,14 +8,14 @@ export async function POST(req: Request) {
     if (!API_KEY) {
       console.error('MODAL_API_KEY is not set');
       return NextResponse.json(
-        { error: 'Server configuration error' }, 
+        { error: 'Server configuration error' },
         { status: 500 }
       );
     }
 
     const body = await req.json();
-    
-    const response = await fetch(MODAL_URL, {
+
+    const response = await fetch(`${MODAL_URL.replace(/\/$/, '')}/search`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -34,7 +34,7 @@ export async function POST(req: Request) {
 
     const data = await response.json();
     return NextResponse.json(data);
-    
+
   } catch (error) {
     console.error('Search proxy error:', error);
     return NextResponse.json(

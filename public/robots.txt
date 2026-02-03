@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://gembid.help/sitemap.xml

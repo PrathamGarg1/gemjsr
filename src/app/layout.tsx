@@ -71,6 +71,8 @@ export const metadata: Metadata = {
   }
 };
 
+import { Footer } from "@/components/Footer";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -164,7 +166,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <head>
+       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -177,7 +179,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
         />
-        <script
+         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
         />
@@ -186,6 +188,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        <Footer />
       </body>
     </html>
   );
