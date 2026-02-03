@@ -20,6 +20,7 @@ import { Navbar } from "@/components/Navbar";
 import { Spotlight } from "@/components/ui/spotlight";
 import { BackgroundBeams } from "@/components/ui/background-beams";
 import Link from "next/link"; // Correct import for Link
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 interface ResultItem {
   item: string;
@@ -145,12 +146,20 @@ export default function Home() {
         </div>
 
         {/* Search App */}
+       
         <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
             className="w-full max-w-4xl mx-auto mb-24 relative p-[1px] rounded-2xl bg-gradient-to-br from-indigo-500/30 via-purple-500/30 to-indigo-500/30 shadow-2xl shadow-indigo-500/20"
         >
+           <GlowingEffect
+          spread={40}
+          glow={true}
+          disabled={false}
+          proximity={64}
+          inactiveZone={0.01}
+        />
           <div className="bg-white/90 backdrop-blur-xl rounded-2xl p-2 border border-white/50">
             <form onSubmit={handleSearch} className="flex flex-col md:flex-row gap-2 relative z-20">
               <div className="relative flex-grow">
@@ -439,139 +448,10 @@ export default function Home() {
         </div>
 
         {/* --- ULTIMATE SEO CONTENT --- */}
-        <div className="w-full max-w-5xl space-y-32 z-20 " >
+        <div className="my-[-10rem] w-full max-w-5xl space-y-32 z-20 " >
             
-            {/* USP CLARIFICATION SECTION */}
-            <section className="text-center space-y-8">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-50 text-red-600 font-medium text-sm">
-                    <AlertTriangle className="h-4 w-4" />
-                    <span>Stop Bidding Blindly</span>
-                </div>
-                <h2 className="text-3xl md:text-5xl font-bold text-slate-900">Why Historical Data Matters</h2>
-                <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-                    Most contractors lose because they don't know the winning price (L1) of previous tenders. 
-                    <br/><br/>
-                    <strong>We don't show live tenders. We show you the answer sheet.</strong>
-                    <br/>
-                    By analyzing past winning bids, you can predict the exact price you need to quote to win the next one.
-                </p>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left mt-12">
-                     <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all">
-                        <div className="w-10 h-10 bg-indigo-50 rounded-lg flex items-center justify-center mb-4">
-                            <History className="h-5 w-5 text-indigo-600" />
-                        </div>
-                        <h3 className="font-bold text-lg text-slate-900 mb-2">Past Data, Future Wins</h3>
-                        <p className="text-slate-600 text-sm">See what price won the contract last month. Quote slightly lower. Win.</p>
-                     </div>
-                     <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all">
-                        <div className="w-10 h-10 bg-purple-50 rounded-lg flex items-center justify-center mb-4">
-                            <Database className="h-5 w-5 text-purple-600" />
-                        </div>
-                        <h3 className="font-bold text-lg text-slate-900 mb-2">10M+ Archived Bids</h3>
-                        <p className="text-slate-600 text-sm">Our database covers every category from furniture to software.</p>
-                     </div>
-                     <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all">
-                        <div className="w-10 h-10 bg-emerald-50 rounded-lg flex items-center justify-center mb-4">
-                            <TrendingUp className="h-5 w-5 text-emerald-600" />
-                        </div>
-                        <h3 className="font-bold text-lg text-slate-900 mb-2">Price Trend Analysis</h3>
-                        <p className="text-slate-600 text-sm">Spot if prices are dropping or rising before you commit to a bid.</p>
-                     </div>
-                </div>
-            </section>
 
-             {/* MARKET INTELLIGENCE CHART */}
-             <section className="bg-white rounded-[2rem] p-8 md:p-12 border border-slate-200 shadow-xl shadow-slate-200/50">
-                 <div className="flex flex-col md:flex-row gap-8 items-center mb-8">
-                     <div className="flex-1 space-y-4">
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 text-indigo-600 font-bold text-xs uppercase tracking-wider">
-                            <TrendingUp className="h-3 w-3" />
-                            Market Intelligence
-                        </div>
-                        <h2 className="text-3xl font-bold text-slate-900">Top Procurement Categories in FY 2025-26</h2>
-                        <p className="text-slate-500 leading-relaxed">
-                            Based on our analysis of over <strong>$4 Billion+</strong> in transaction volume. 
-                            These sectors are seeing the highest government spending right now. 
-                            Position your business to target these high-value opportunities.
-                        </p>
-                        <div className="flex flex-wrap gap-2 pt-2">
-                             <Badge className="bg-slate-100 text-slate-600 hover:bg-slate-200 border-none">Marine Fuels</Badge>
-                             <Badge className="bg-slate-100 text-slate-600 hover:bg-slate-200 border-none">IT Hardware</Badge>
-                             <Badge className="bg-slate-100 text-slate-600 hover:bg-slate-200 border-none">Automotive</Badge>
-                        </div>
-                     </div>
-                     <div className="w-full md:w-1/2 h-[300px]">
-                        <ResponsiveContainer width="100%" height="100%">
-                            <BarChart data={analyticsData} layout="vertical" margin={{ top: 5, right: 30, left: 40, bottom: 5 }}>
-                                <CartesianGrid strokeDasharray="3 3" horizontal={true} vertical={false} stroke="#f1f5f9" />
-                                <XAxis type="number" hide />
-                                <YAxis 
-                                    dataKey="name" 
-                                    type="category" 
-                                    width={100} 
-                                    tick={{fontSize: 11, fill: '#64748b'}} 
-                                    axisLine={false} 
-                                    tickLine={false} 
-                                />
-                                <Tooltip 
-                                    cursor={{fill: '#f8fafc'}}
-                                    contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
-                                />
-                                <Bar dataKey="value" radius={[0, 4, 4, 0]} barSize={32}>
-                                    {analyticsData.map((entry, index) => (
-                                        <Cell key={`cell-${index}`} fill={entry.color} />
-                                    ))}
-                                </Bar>
-                            </BarChart>
-                        </ResponsiveContainer>
-                     </div>
-                 </div>
-                 <div className="p-4 bg-slate-50 rounded-xl border border-slate-100 flex items-start gap-3">
-                    <Zap className="h-5 w-5 text-amber-500 mt-0.5 flex-shrink-0" />
-                    <p className="text-sm text-slate-600">
-                        <strong>Pro Tip:</strong> "Passenger Car" and "Desktop Computer" tenders often have low competition in specific districts. Use our search tool to filter by location (coming soon).
-                    </p>
-                 </div>
-             </section>
-
-
-             {/* 100% REFUND GUARANTEE SECTION */}
-             <section className="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200 p-8 md:p-12 mb-32">
-                  <div className="absolute top-0 right-0 p-32 bg-amber-400 rounded-full blur-[100px] opacity-10"></div>
-                  <div className="relative z-20 flex flex-col md:flex-row items-center gap-10">
-                      <div className="flex-1 space-y-6 text-center md:text-left">
-                          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 text-amber-800 font-bold text-xs uppercase tracking-wider border border-amber-200">
-                             <Award className="h-4 w-4" />
-                             Risk-Free Promise
-                          </div>
-                          <h2 className="text-4xl md:text-5xl font-bold text-slate-900">
-                              Win a Tender in 30 Days,<br/>
-                              <span className="text-amber-600">Or Get a 100% Refund.</span>
-                          </h2>
-                          <p className="text-lg text-slate-700 leading-relaxed max-w-xl">
-                              We are so confident in our <strong>GeM Consultancy AI</strong> that we back it with cash. 
-                              If you don't secure a <strong>Government Contract</strong> within one month of using our Pro plan, we will refund every rupee.
-                          </p>
-                          <div className="pt-4 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                              <GuaranteeForm />
-                              <div className="flex items-center gap-2 text-sm text-slate-500 px-4">
-                                  <CheckCircle2 className="h-4 w-4 text-emerald-500" />
-                                  <span>T&C Apply</span>
-                              </div>
-                          </div>
-                      </div>
-                      <div className="w-full md:w-1/3 flex justify-center">
-                          <div className="relative w-64 h-64 bg-white rounded-full shadow-2xl flex items-center justify-center border-8 border-amber-100">
-                               <div className="text-center">
-                                   <div className="text-6xl font-black text-amber-500 mb-1">100%</div>
-                                   <div className="text-lg font-bold text-slate-900 uppercase tracking-widest">Money Back</div>
-                                   <div className="text-sm font-medium text-slate-500 uppercase tracking-wide">Guarantee</div>
-                               </div>
-                          </div>
-                      </div>
-                  </div>
-             </section>
-
+             
              {/* TRUST GRID (PERSONAS) */}
              <section className="mb-24">
                 <div className="text-center mb-16">
@@ -624,6 +504,91 @@ export default function Home() {
                 </div>
              </section>
 
+
+            
+             {/* 100% REFUND GUARANTEE SECTION */}
+             <section className="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200 p-8 md:p-12 mb-32">
+                  <div className="absolute top-0 right-0 p-32 bg-amber-400 rounded-full blur-[100px] opacity-10"></div>
+                  <div className="relative z-20 flex flex-col md:flex-row items-center gap-10">
+                      <div className="flex-1 space-y-6 text-center md:text-left">
+                          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 text-amber-800 font-bold text-xs uppercase tracking-wider border border-amber-200">
+                             <Award className="h-4 w-4" />
+                             Risk-Free Promise
+                          </div>
+                          <h2 className="text-4xl md:text-5xl font-bold text-slate-900">
+                              Win a Tender in 30 Days,<br/>
+                              <span className="text-amber-600">Or Get a 100% Refund.</span>
+                          </h2>
+                          <p className="text-lg text-slate-700 leading-relaxed max-w-xl">
+                              We are so confident in our <strong>GeM Consultancy AI</strong> that we back it with cash. 
+                              If you don't secure a <strong>Government Contract</strong> within one month of using our Pro plan, we will refund every rupee.
+                          </p>
+                          <div className="pt-4 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                              <GuaranteeForm />
+                              <div className="flex items-center gap-2 text-sm text-slate-500 px-4">
+                                  <CheckCircle2 className="h-4 w-4 text-emerald-500" />
+                                  <span>T&C Apply</span>
+                              </div>
+                          </div>
+                      </div>
+                      <div className="w-full md:w-1/3 flex justify-center">
+                          <div className="relative w-64 h-64 bg-white rounded-full shadow-2xl flex items-center justify-center border-8 border-amber-100">
+                               <div className="text-center">
+                                   <div className="text-6xl font-black text-amber-500 mb-1">100%</div>
+                                   <div className="text-lg font-bold text-slate-900 uppercase tracking-widest">Money Back</div>
+                                   <div className="text-sm font-medium text-slate-500 uppercase tracking-wide">Guarantee</div>
+                               </div>
+                          </div>
+                      </div>
+                  </div>
+             </section>
+
+
+
+            {/* USP CLARIFICATION SECTION */}
+            <section className="text-center space-y-8">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-50 text-red-600 font-medium text-sm">
+                    <AlertTriangle className="h-4 w-4" />
+                    <span>Stop Bidding Blindly</span>
+                </div>
+                <h2 className="text-3xl md:text-5xl font-bold text-slate-900">Why Historical Data Matters</h2>
+                <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+                    Most contractors lose because they don't know the winning price (L1) of previous tenders. 
+                    <br/><br/>
+                    <strong>We don't show live tenders. We show you the answer sheet.</strong>
+                    <br/>
+                    By analyzing past winning bids, you can predict the exact price you need to quote to win the next one.
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left mt-12">
+                     <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all">
+                        <div className="w-10 h-10 bg-indigo-50 rounded-lg flex items-center justify-center mb-4">
+                            <History className="h-5 w-5 text-indigo-600" />
+                        </div>
+                        <h3 className="font-bold text-lg text-slate-900 mb-2">Past Data, Future Wins</h3>
+                        <p className="text-slate-600 text-sm">See what price won the contract last month. Quote slightly lower. Win.</p>
+                     </div>
+                     <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all">
+                        <div className="w-10 h-10 bg-purple-50 rounded-lg flex items-center justify-center mb-4">
+                            <Database className="h-5 w-5 text-purple-600" />
+                        </div>
+                        <h3 className="font-bold text-lg text-slate-900 mb-2">10M+ Archived Bids</h3>
+                        <p className="text-slate-600 text-sm">Our database covers every category from furniture to software.</p>
+                     </div>
+                     <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all">
+                        <div className="w-10 h-10 bg-emerald-50 rounded-lg flex items-center justify-center mb-4">
+                            <TrendingUp className="h-5 w-5 text-emerald-600" />
+                        </div>
+                        <h3 className="font-bold text-lg text-slate-900 mb-2">Price Trend Analysis</h3>
+                        <p className="text-slate-600 text-sm">Spot if prices are dropping or rising before you commit to a bid.</p>
+                     </div>
+                </div>
+            </section>
+
+           
+            
+
+         
+
              <section className="mb-32">
                  <h2 className="text-3xl font-bold text-slate-900 text-center mb-12">Trusted by 12,000+ Contractors</h2>
                  <div className="relative rounded-3xl overflow-hidden bg-slate-900 border border-slate-800 shadow-2xl">
@@ -648,6 +613,61 @@ export default function Home() {
                              <div className="text-indigo-400">Director, Verma Infra & Supply, Delhi</div>
                          </div>
                      </div>
+                 </div>
+             </section>
+
+
+               {/* MARKET INTELLIGENCE CHART */}
+             <section className="bg-white rounded-[2rem] p-8 md:p-12 border border-slate-200 shadow-xl shadow-slate-200/50">
+                 <div className="flex flex-col md:flex-row gap-8 items-center mb-8">
+                     <div className="flex-1 space-y-4">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 text-indigo-600 font-bold text-xs uppercase tracking-wider">
+                            <TrendingUp className="h-3 w-3" />
+                            Market Intelligence
+                        </div>
+                        <h2 className="text-3xl font-bold text-slate-900">Top Procurement Categories in FY 2025-26</h2>
+                        <p className="text-slate-500 leading-relaxed">
+                            Based on our analysis of over <strong>$4 Billion+</strong> in transaction volume. 
+                            These sectors are seeing the highest government spending right now. 
+                            Position your business to target these high-value opportunities.
+                        </p>
+                        <div className="flex flex-wrap gap-2 pt-2">
+                             <Badge className="bg-slate-100 text-slate-600 hover:bg-slate-200 border-none">Marine Fuels</Badge>
+                             <Badge className="bg-slate-100 text-slate-600 hover:bg-slate-200 border-none">IT Hardware</Badge>
+                             <Badge className="bg-slate-100 text-slate-600 hover:bg-slate-200 border-none">Automotive</Badge>
+                        </div>
+                     </div>
+                     <div className="w-full md:w-1/2 h-[300px]">
+                        <ResponsiveContainer width="100%" height="100%">
+                            <BarChart data={analyticsData} layout="vertical" margin={{ top: 5, right: 30, left: 40, bottom: 5 }}>
+                                <CartesianGrid strokeDasharray="3 3" horizontal={true} vertical={false} stroke="#f1f5f9" />
+                                <XAxis type="number" hide />
+                                <YAxis 
+                                    dataKey="name" 
+                                    type="category" 
+                                    width={100} 
+                                    tick={{fontSize: 11, fill: '#64748b'}} 
+                                    axisLine={false} 
+                                    tickLine={false} 
+                                />
+                                <Tooltip 
+                                    cursor={{fill: '#f8fafc'}}
+                                    contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
+                                />
+                                <Bar dataKey="value" radius={[0, 4, 4, 0]} barSize={32}>
+                                    {analyticsData.map((entry, index) => (
+                                        <Cell key={`cell-${index}`} fill={entry.color} />
+                                    ))}
+                                </Bar>
+                            </BarChart>
+                        </ResponsiveContainer>
+                     </div>
+                 </div>
+                 <div className="p-4 bg-slate-50 rounded-xl border border-slate-100 flex items-start gap-3">
+                    <Zap className="h-5 w-5 text-amber-500 mt-0.5 flex-shrink-0" />
+                    <p className="text-sm text-slate-600">
+                        <strong>Pro Tip:</strong> "Passenger Car" and "Desktop Computer" tenders often have low competition in specific districts. Use our search tool to filter by location (coming soon).
+                    </p>
                  </div>
              </section>
 
