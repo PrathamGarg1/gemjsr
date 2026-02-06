@@ -35,7 +35,7 @@ const geistMono = Geist_Mono({
   };
 
 export const metadata: Metadata = {
-  title: "GeM L1 Price Prediction & Tender Consultant | Win Government Bids | gembid.help",
+  title: "Free GeM Tender Search & L1 Price Prediction | Win Government Tenders | gembid.help",
   description: "India's #1 GeM Data Intelligence & Consultancy Agency. Predict L1 winning prices for GeM tenders using AI. Expert services for GeM Registration, Brand Approval, Catalog Management, and Tender Bidding. Stop guessing, start winning.",
   applicationName: 'gembid.help',
   authors: [{ name: 'Pratham Garg', url: 'https://gembid.help' }],
