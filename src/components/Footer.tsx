@@ -1,104 +1,84 @@
+import { Facebook, Twitter, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 import Link from "next/link";
-import { Facebook, Twitter, Linkedin, Instagram, Mail, MapPin, Phone, ShieldCheck } from "lucide-react";
-import { GuaranteeForm } from "./GuaranteeForm";
-import { Button } from "./ui/button";
 
 export function Footer() {
   return (
-    <footer className="bg-slate-900 text-slate-300 py-16 border-t border-slate-800">
+    <footer className="bg-slate-900 border-t border-slate-800 pt-16 pb-8 text-slate-400">
       <div className="container mx-auto px-4 max-w-7xl">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-          
-          {/* Brand Column */}
-          <div className="space-y-6">
-            <Link href="/" className="flex items-center gap-2 group">
-              <span className="font-bold text-2xl tracking-tight text-white">
-                gembid<span className="text-indigo-400 font-normal">.help</span>
-              </span>
-            </Link>
-            <p className="text-slate-400 text-sm leading-relaxed">
-              #1 AI Tool for Government Tenders in India. We help SMEs and Startups win GeM contracts using L1 price prediction and competitor intelligence.
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+          <div className="space-y-4">
+            <h3 className="text-2xl font-bold text-white mb-4">gembid<span className="text-indigo-500">.help</span></h3>
+            <p className="text-sm leading-relaxed">
+              India's #1 AI-powered GeM Intelligence Platform. We help contractors and OEMs predict L1 prices and win government tenders with data-driven precision.
             </p>
-            <div className="flex gap-4">
-              <a href="#" className="hover:text-white transition-colors"><Twitter className="h-5 w-5" /></a>
-              <a href="#" className="hover:text-white transition-colors"><Linkedin className="h-5 w-5" /></a>
-              <a href="#" className="hover:text-white transition-colors"><Instagram className="h-5 w-5" /></a>
+            <div className="flex gap-4 pt-4">
+              <Link href="#" className="hover:text-white transition-colors"><Twitter className="h-5 w-5" /></Link>
+              <Link href="#" className="hover:text-white transition-colors"><Facebook className="h-5 w-5" /></Link>
+              <Link href="#" className="hover:text-white transition-colors"><Linkedin className="h-5 w-5" /></Link>
+              <Link href="#" className="hover:text-white transition-colors"><Instagram className="h-5 w-5" /></Link>
             </div>
           </div>
 
-          {/* Quick Links (Services) */}
           <div>
-            <h3 className="font-semibold text-white mb-6 text-lg">Services</h3>
-            <ul className="space-y-4 text-sm">
-              <li><Link href="/" className="hover:text-indigo-400 transition-colors">L1 Price Prediction</Link></li>
-              <li><Link href="/consultancy" className="hover:text-indigo-400 transition-colors">GeM Consultancy</Link></li>
-              <li><Link href="/playbook" className="hover:text-indigo-400 transition-colors">GeM Registration Help</Link></li>
-              <li><a href="#" className="hover:text-indigo-400 transition-colors">Tender Bidding Support</a></li>
-              <li><a href="#" className="hover:text-indigo-400 transition-colors">Vendor Assessment</a></li>
+            <h4 className="text-white font-bold mb-6">Services</h4>
+            <ul className="space-y-3 text-sm">
+              <li><Link href="#" className="hover:text-indigo-400 transition-colors">L1 Price Prediction</Link></li>
+              <li><Link href="#" className="hover:text-indigo-400 transition-colors">Competitor Analysis</Link></li>
+              <li><Link href="#" className="hover:text-indigo-400 transition-colors">GeM Registration</Link></li>
+              <li><Link href="#" className="hover:text-indigo-400 transition-colors">Brand Approval</Link></li>
+              <li><Link href="#" className="hover:text-indigo-400 transition-colors">Vendor Assessment</Link></li>
             </ul>
           </div>
 
-          {/* Resources (SEO Content) */}
           <div>
-            <h3 className="font-semibold text-white mb-6 text-lg">Resources</h3>
-            <ul className="space-y-4 text-sm">
-              <li><Link href="/playbook" className="hover:text-indigo-400 transition-colors">The GeM Playbook</Link></li>
-              <li><Link href="/dictionary" className="hover:text-indigo-400 transition-colors">GeM Dictionary (A-Z)</Link></li>
-              <li><Link href="/faq" className="hover:text-indigo-400 transition-colors">Frequently Asked Questions</Link></li>
-              <li><Link href="/blog" className="hover:text-indigo-400 transition-colors">Tender Tips Blog</Link></li>
-              <li><Link href="/sitemap.xml" className="hover:text-indigo-400 transition-colors">Sitemap</Link></li>
-            </ul>
-          </div>
+             <h4 className="text-white font-bold mb-6">Resources</h4>
+             <ul className="space-y-3 text-sm">
+               <li><Link href="#" className="hover:text-indigo-400 transition-colors">GeM Handbook 2025</Link></li>
+               <li><Link href="#" className="hover:text-indigo-400 transition-colors">Tender Bidding Guide</Link></li>
+               <li><Link href="#" className="hover:text-indigo-400 transition-colors">Reverse Auction Tips</Link></li>
+               <li><Link href="#" className="hover:text-indigo-400 transition-colors">Consultant Directory</Link></li>
+               <li><Link href="#" className="hover:text-indigo-400 transition-colors">FAQ & Support</Link></li>
+             </ul>
+           </div>
 
-          {/* Contact & Trust */}
-          <div>
-             <h3 className="font-semibold text-white mb-6 text-lg">Contact Us</h3>
-             <ul className="space-y-4 text-sm text-slate-400">
+           <div>
+             <h4 className="text-white font-bold mb-6">Contact Us</h4>
+             <ul className="space-y-3 text-sm">
                <li className="flex items-start gap-3">
-                 <MapPin className="h-5 w-5 text-indigo-500 shrink-0" />
-                 <span>IIT Ropar, Punjab, India - 140001</span>
+                 <MapPin className="h-5 w-5 shrink-0 text-indigo-500" />
+                 <span>123, Tech Park, Okhla Phase III, New Delhi - 110020</span>
                </li>
                <li className="flex items-center gap-3">
-                 <Mail className="h-5 w-5 text-indigo-500 shrink-0" />
-                 <a href="mailto:gargprathamofficial@gmail.com" className="hover:text-white">gargprathamofficial@gmail.com</a>
+                 <Phone className="h-5 w-5 shrink-0 text-indigo-500" />
+                 <span>+91 98765 43210</span>
                </li>
                <li className="flex items-center gap-3">
-                 <GuaranteeForm
-                trigger={
-                    <Button className="bg-slate-900 text-white hover:bg-slate-800 font-semibold text-xs px-5 h-9 rounded-full shadow-lg shadow-slate-900/20">
-                        Secret Winning Strategy
-                    </Button>
-                }
-             />
+                 <Mail className="h-5 w-5 shrink-0 text-indigo-500" />
+                 <span>support@gembid.help</span>
                </li>
              </ul>
-             <div className="mt-6 pt-6 border-t border-slate-800">
-                <div className="flex items-center gap-2 text-emerald-400 text-xs font-medium">
-                    <ShieldCheck className="h-4 w-4" />
-                    <span>100% Refund Guarantee Active</span>
-                </div>
-             </div>
-          </div>
+           </div>
         </div>
 
-        {/* SEO Keywords (Fat Footer Strategy) */}
-        <div className="border-t border-slate-800 pt-8 mt-12">
-            <h4 className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-4">Trending Searches</h4>
-            <div className="flex flex-wrap gap-x-6 gap-y-2 text-xs text-slate-500">
-                <Link href="/dictionary" className="hover:text-slate-300 transition-colors">What is L1 in GeM?</Link>
-                <Link href="/playbook" className="hover:text-slate-300 transition-colors">GeM Registration Fees</Link>
-                <a href="#" className="hover:text-slate-300 transition-colors">Government Tenders India</a>
-                <a href="#" className="hover:text-slate-300 transition-colors">CPPP Portal Login</a>
-                <a href="#" className="hover:text-slate-300 transition-colors">GeM Bid Participation</a>
-                <a href="#" className="hover:text-slate-300 transition-colors">Tender Tiger Alternative</a>
-                <a href="#" className="hover:text-slate-300 transition-colors">GeM 4.0 Training</a>
-                <a href="#" className="hover:text-slate-300 transition-colors">Direct Purchase Limit GeM</a>
-                <a href="#" className="hover:text-slate-300 transition-colors">Startup India GeM Benefits</a>
-                <a href="#" className="hover:text-slate-300 transition-colors">MSME Tender Exemptions</a>
+        {/* SEO Keyword Bank (Low visibility but present) */}
+        <div className="border-t border-slate-800 pt-8 pb-8">
+            <h5 className="text-xs font-bold text-slate-600 uppercase tracking-widest mb-4">Trending Searches</h5>
+            <div className="flex flex-wrap gap-2 gap-y-3">
+                {["GeM Portal Login", "GeM Registration Fees", "Government e-Marketplace Tenders", "L1 Bidder Meaning", "GeM Tender Search", "Manpower Outsourcing GeM", "Security Services Tender", "Housekeeping Services GeM", "Office Furniture GeM", "Laptop Tender Price", "GeM Customer Care", "GeM Seller Registration", "Startup India GeM", "MSE Purchase Preference", "GeM Invoice Generation", "GeM Caution Money Refund"].map((keyword, i) => (
+                    <span key={i} className="text-[10px] text-slate-600 bg-slate-800/50 px-2 py-1 rounded hover:bg-slate-800 hover:text-slate-400 cursor-default transition-colors">
+                        {keyword}
+                    </span>
+                ))}
             </div>
-            <div className="mt-8 text-center text-xs text-slate-600">
-                &copy; {new Date().getFullYear()} gembid.help. All rights reserved. Not affiliated with the Government of India or GeM Portal directly.
-            </div>
+        </div>
+
+        <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-medium">
+          <p>© 2025 gembid.help. All rights reserved.</p>
+          <div className="flex gap-6">
+            <Link href="#" className="hover:text-white text-slate-500">Privacy Policy</Link>
+            <Link href="#" className="hover:text-white text-slate-500">Terms of Service</Link>
+            <Link href="#" className="hover:text-white text-slate-500">Sitemap</Link>
+          </div>
         </div>
       </div>
     </footer>

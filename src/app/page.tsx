@@ -14,6 +14,7 @@ import { BackgroundEffects } from "@/components/home/BackgroundEffects";
 import { ServiceProcessSteps } from "@/components/home/ServiceProcessSteps";
 import { MarutiAgent } from "@/components/home/MarutiAgent";
 import { GeMEncyclopedia } from "@/components/home/GeMEncyclopedia";
+import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -573,32 +574,11 @@ export default function Home() {
                  </div>
              </section>
 
-            {/* Keyword Bank Footer */}
-            <section className="border-t border-slate-200 pt-16 pb-8">
-                <h4 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-6 text-center">Popular Searches</h4>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-xs text-slate-500 text-center md:text-left">
-                    <ul className="space-y-2">
-                        <li><Link href="#" className="hover:text-indigo-600">GeM Login</Link></li>
-                        <li><Link href="#" className="hover:text-indigo-600">GeM Registration</Link></li>
-                        <li><Link href="#" className="hover:text-indigo-600">Government e-Marketplace</Link></li>
-                    </ul>
-                    <ul className="space-y-2">
-                        <li><Link href="#" className="hover:text-indigo-600">L1 Price Predictor</Link></li>
-                        <li><Link href="#" className="hover:text-indigo-600">Bid Estimation Tool</Link></li>
-                        <li><Link href="#" className="hover:text-indigo-600">Tender Result Analysis</Link></li>
-                    </ul>
-                    <ul className="space-y-2">
-                         <li><Link href="#" className="hover:text-indigo-600">GeM Consultancy Delhi</Link></li>
-                         <li><Link href="#" className="hover:text-indigo-600">MSE Verification GeM</Link></li>
-                         <li><Link href="#" className="hover:text-indigo-600">Startup India GeM</Link></li>
-                    </ul>
-                    <ul className="space-y-2">
-                         <li><Link href="#" className="hover:text-indigo-600">Brand Approval</Link></li>
-                         <li><Link href="#" className="hover:text-indigo-600">GeM Seller Help</Link></li>
-                         <li><Link href="#" className="hover:text-indigo-600">OEM Panel Access</Link></li>
-                    </ul>
-                </div>
-            </section>
+            {/* Footer Component */}
+            <div className="w-full mt-20">
+                <Footer />
+            </div>
+
 
                 </div>
 
