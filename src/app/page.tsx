@@ -7,12 +7,17 @@ import Link from "next/link";
 import Image from "next/image";
 import { SearchApp } from "@/components/home/SearchApp";
 import { MarketIntelligence } from "@/components/home/MarketIntelligence";
+import { CompetitorComparison } from "@/components/home/CompetitorComparison";
+import { LeadCaptureForm } from "@/components/home/LeadCaptureForm";
 
 import { BackgroundEffects } from "@/components/home/BackgroundEffects";
+import { ServiceProcessSteps } from "@/components/home/ServiceProcessSteps";
+import { MarutiAgent } from "@/components/home/MarutiAgent";
+import { GeMEncyclopedia } from "@/components/home/GeMEncyclopedia";
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen w-full bg-slate-50 text-slate-900 font-sans selection:bg-indigo-100 selection:text-indigo-900 overflow-x-hidden z-100">
+    <div className="relative min-h-screen w-full bg-slate-50 text-slate-900 font-sans selection:bg-indigo-100 selection:text-indigo-900 overflow-x-hidden">
       <Navbar />
       
       {/* Background Effects */}
@@ -20,259 +25,316 @@ export default function Home() {
 
       <main className="relative z-10 w-full pt-32 pb-12 px-4 md:px-6 flex flex-col items-center">
 
-        {/* Banner for Official Link */}
-        <div className="w-full max-w-4xl mb-8 flex justify-center relative z-10">
-             <a href="https://gem.gov.in" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/80 backdrop-blur-md border border-slate-200 shadow-sm hover:shadow-md transition-all text-xs font-medium text-slate-600">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                #1 AI Tool for Government Tenders India
-                {/* <ExternalLink className="h-3 w-3 text-slate-400 group-hover:text-slate-600" /> */}
-             </a>
-        </div>
-
-        {/* Hero Section with USP Emphasis - High Z-Index ensuring visibility */}
-        <div className="max-w-4xl w-full mx-auto text-center mb-16 relative z-10">
-           
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-slate-900 mb-8 leading-[1.1]">
-            Win <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-600">GeM Contracts</span> <br/>
-            with L1 Price Prediction
-          </h1>
-          <div className="text-xl text-slate-600 max-w-2xl mx-auto mb-10 leading-relaxed font-normal">
-            Our AI analyzes millions of GeM Tenders to predict the exact winning (L1) price at which you can win the BID and get the contract.
-            <div className="flex justify-center gap-4 mt-4">
-                <div className="text-indigo-600 font-semibold hover:underline  text-xl">Simple.</div>
-                <div className="text-indigo-600 font-semibold hover:underline text-xl">Free.</div>
-                <div className="text-indigo-600 font-semibold hover:underline text-xl">Proven.</div>
-            </div>
+        {/* Hero Section */}
+        <div className="max-w-4xl w-full mx-auto text-center  relative z-10">
+          
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-50 border border-emerald-100 text-emerald-700 font-bold text-sm uppercase tracking-wider mb-8 shadow-sm">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            100% Free Tool for Everyone
           </div>
+
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-slate-900 mb-8 leading-[1.1]">
+            Find the <span className="text-indigo-600">Winning Price</span> of Any GeM Tender.
+          </h1>
+          
+          <p className="text-2xl text-slate-600 max-w-3xl mx-auto mb-12 leading-relaxed font-normal">
+            Just Search for an item (100% FREE) and get all 
+            <br className="hidden md:block" />
+            the contracts issued for that item.
+          </p>
         </div>
 
-        {/* Search App (Interactive Component) */}
+        {/* Search App */}
         <SearchApp />
-        
-        <div 
-            className="w-full my-16 pt-[-20px]  max-w-4xl mx-auto relative rounded-2xl bg-gradient-to-br from-indigo-500/30 via-purple-500/30 to-indigo-500/30 shadow-2xl shadow-indigo-500/20"
-          >
-            {/* BEFORE & AFTER TRANSFORMATION */}
-            <div className="max-w-6xl mx-auto px-4 -mt-6 mb-24 relative z-20">
-                <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-200">
-                    <div className="grid md:grid-cols-2">
-                        {/* BEFORE */}
-                        <div className="relative p-8 md:p-12 bg-slate-100 border-b md:border-b-0 md:border-r border-slate-200">
-                             <div className="absolute top-6 left-6 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-lg z-10">
-                                The Old Way
-                             </div>
-                             <div className="mt-8 mb-6 relative aspect-video rounded-xl overflow-hidden shadow-inner border border-slate-300 grayscale-[0.5]">
-                                <Image 
-                                    src="/assets/struggling_bidder.png" 
-                                    alt="Stressed Contractor" 
-                                    fill 
-                                    className="object-cover opacity-90 transition-opacity hover:opacity-100" 
-                                    sizes="(max-width: 768px) 100vw, 50vw"
-                                />
-                                <div className="absolute inset-0 bg-indigo-900/10 mix-blend-multiply"></div>
-                             </div>
-                             <h3 className="text-xl font-bold text-slate-800 mb-4 flex items-center gap-2">
-                                <span className="text-2xl">😫</span> Constant Stress
-                             </h3>
-                             <ul className="space-y-3">
-                                 <li className="flex items-start gap-3 text-slate-600 text-sm">
-                                     <div className="w-5 h-5 rounded-full bg-red-100 flex items-center justify-center shrink-0 mt-0.5">
-                                         <span className="text-red-600 font-bold block leading-none">×</span>
-                                     </div>
-                                     Bidding blindly without knowing L1 price
-                                 </li>
-                                 <li className="flex items-start gap-3 text-slate-600 text-sm">
-                                     <div className="w-5 h-5 rounded-full bg-red-100 flex items-center justify-center shrink-0 mt-0.5">
-                                         <span className="text-red-600 font-bold block leading-none">×</span>
-                                     </div>
-                                     Hiring "Fake Gurus" who charge high fees
-                                 </li>
-                                 <li className="flex items-start gap-3 text-slate-600 text-sm">
-                                     <div className="w-5 h-5 rounded-full bg-red-100 flex items-center justify-center shrink-0 mt-0.5">
-                                         <span className="text-red-600 font-bold block leading-none">×</span>
-                                     </div>
-                                     Losing margins in Reverse Auctions
-                                 </li>
-                             </ul>
-                        </div>
 
-                        {/* AFTER */}
-                        <div className="relative p-8 md:p-12 bg-indigo-50/50">
-                             <div className="absolute top-6 left-6 bg-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-lg animate-pulse z-10">
-                                The AI Way
-                             </div>
-                             <div className="mt-8 mb-6 relative aspect-video rounded-xl overflow-hidden shadow-2xl shadow-indigo-200 border border-indigo-100 ring-4 ring-white">
-                                <Image 
-                                    src="/assets/happy_mobile_bidder.png" 
-                                    alt="Happy Contractor" 
-                                    fill 
-                                    className="object-cover transform transition-transform hover:scale-105 duration-700" 
-                                    sizes="(max-width: 768px) 100vw, 50vw"
-                                />
-                             </div>
-                             <h3 className="text-xl font-bold text-indigo-900 mb-4 flex items-center gap-2">
-                                <span className="text-2xl">🚀</span> Verified Profits
-                             </h3>
-                             <ul className="space-y-3">
-                                 <li className="flex items-start gap-3 text-slate-700 text-sm font-medium">
-                                     <div className="w-5 h-5 rounded-full bg-emerald-100 flex items-center justify-center shrink-0 mt-0.5">
-                                         <CheckCircle2 className="h-3 w-3 text-emerald-600" />
-                                     </div>
-                                     Predict winning price with 98% accuracy
-                                 </li>
-                                 <li className="flex items-start gap-3 text-slate-700 text-sm font-medium">
-                                     <div className="w-5 h-5 rounded-full bg-emerald-100 flex items-center justify-center shrink-0 mt-0.5">
-                                         <CheckCircle2 className="h-3 w-3 text-emerald-600" />
-                                     </div>
-                                     Bid from mobile, anywhere, anytime
-                                 </li>
-                                 <li className="flex items-start gap-3 text-slate-700 text-sm font-medium">
-                                     <div className="w-5 h-5 rounded-full bg-emerald-100 flex items-center justify-center shrink-0 mt-0.5">
-                                         <CheckCircle2 className="h-3 w-3 text-emerald-600" />
-                                     </div>
-                                     Join 10,000+ actual winning bidders
-                                 </li>
-                             </ul>
-                        </div>
-                    </div>
+        {/* CLARITY STRIP */}
+        <div className="flex flex-wrap justify-center gap-4 md:gap-12 mt-[-92px] mb-16 text-slate-500 font-medium">
+             <div className="flex items-center gap-2">
+                <div className="w-8 h-8 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold">1</div>
+                Search Item (Free)
+             </div>
+             <div className="hidden md:block text-slate-300">→</div>
+             <div className="flex items-center gap-2">
+                <div className="w-8 h-8 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold">2</div>
+                See Winning Price (Free)
+             </div>
+             <div className="hidden md:block text-slate-300">→</div>
+             <div className="flex items-center gap-2">
+                <div className="w-8 h-8 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold">3</div>
+                Bid & Win (Your Choice)
+             </div>
+        </div>
+
+        {/* FREE TOOL EXPLANTION */}
+        <div className="w-full max-w-4xl mx-auto mb-24 text-center px-4">
+            <h2 className="text-2xl font-bold text-slate-900 mb-6">Why is this Tool Free?</h2>
+            <p className="text-lg text-slate-600 leading-relaxed max-w-3xl mx-auto">
+                We believe transparency should be a right, not a luxury. 
+                <br/>
+                Our <strong>Free Search Engine</strong> gives you access to <strong>5 Crore+ Historical Records</strong>, 
+                Competitor Names, and Winning Prices without asking for a single rupee. 
+                <br/><br/>
+                <span className="text-sm font-bold text-indigo-600 uppercase tracking-widest border border-indigo-100 bg-indigo-50 px-3 py-1 rounded-full">
+                    No Credit Card Required
+                </span>
+            </p>
+        </div>
+
+        {/* SERVICE PROCESS STEPS - HOW IT WORKS */}
+        <ServiceProcessSteps />
+
+        {/* COMPETITOR COMPARISON */}
+        <CompetitorComparison />
+
+        {/* TRUST GRID - REAL PEOPLE */}
+        <section className="mb-24 mt-14 max-w-6xl w-full">
+            <div className="text-center mb-12">
+                <h2 className="text-3xl font-bold text-slate-900">Who Needs This?</h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4">
+                <div className="rounded-2xl overflow-hidden shadow-md border border-slate-100 relative h-96 group">
+                     <Image src="/assets/site_engineer.png" alt="Contractor" fill className="object-cover transition duration-700 group-hover:scale-105" />
+                     <div className="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-black/80 to-transparent text-white">
+                        <div className="font-bold text-lg">Contractors</div>
+                        <div className="text-xs opacity-80">Stop under-quoting works.</div>
+                     </div>
+                </div>
+                <div className="rounded-2xl overflow-hidden shadow-md border border-slate-100 relative h-96 group">
+                     <Image src="/assets/female_architect.png" alt="Consultant" fill className="object-cover transition duration-700 group-hover:scale-105" />
+                     <div className="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-black/80 to-transparent text-white">
+                        <div className="font-bold text-lg">Service Providers</div>
+                        <div className="text-xs opacity-80">Know the manpower rates.</div>
+                     </div>
+                </div>
+                <div className="rounded-2xl overflow-hidden shadow-md border border-slate-100 relative h-96 group">
+                     <Image src="/assets/sme_owner.png" alt="Seller" fill className="object-cover transition duration-700 group-hover:scale-105" />
+                     <div className="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-black/80 to-transparent text-white">
+                        <div className="font-bold text-lg">Traders (MSME)</div>
+                        <div className="text-xs opacity-80">Sell Laptops/Furniture at L1.</div>
+                     </div>
                 </div>
             </div>
+        </section>
 
-            {/* Quick Stats/Trust Badges */}
-            <div className="text-center pb-12 animate-fade-in-up delay-200 w-full grid grid-cols-2 md:grid-cols-4 gap-4 px-4 max-w-4xl mx-auto mb-20">
-               <div className="p-4 rounded-2xl bg-white border border-slate-100 shadow-sm">
-                   <div className="text-2xl md:text-3xl font-bold text-indigo-600 mb-1">98%</div>
-                   <div className="text-xs text-slate-500 uppercase tracking-widest">Prediction Accuracy</div>
-               </div>
-               <div className="p-4 rounded-2xl bg-white border border-slate-100 shadow-sm">
-                   <div className="text-2xl md:text-3xl font-bold text-indigo-600 mb-1">₹400Cr+</div>
-                   <div className="text-xs text-slate-500 uppercase tracking-widest">Tenders Won</div>
-               </div>
-               <div className="p-4 rounded-2xl bg-white border border-slate-100 shadow-sm">
-                   <div className="text-2xl md:text-3xl font-bold text-indigo-600 mb-1">10k+</div>
-                   <div className="text-xs text-slate-500 uppercase tracking-widest">Active Bidders</div>
-               </div>
-               <div className="p-4 rounded-2xl bg-white border border-slate-100 shadow-sm">
-                   <div className="text-2xl md:text-3xl font-bold text-indigo-600 mb-1">24/7</div>
-                   <div className="text-xs text-slate-500 uppercase tracking-widest">AI Analysis</div>
-               </div>
-            </div>
-            </div>
-
-        {/* --- ULTIMATE SEO CONTENT --- */}
-        <div className="my-[-10rem] w-full max-w-5xl space-y-32 z-20 " >
+        {/* LEAD CAPTURE - THE "HONEST" PITCH */}
+        <section className="w-full py-24 bg-indigo-900 text-white relative overflow-hidden">
+            {/* Background Smiles/People - Abstracted */}
+            <div className="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=2850&q=80')] bg-cover bg-center mix-blend-overlay"></div>
             
-             
-             {/* TRUST GRID (PERSONAS) */}
-             <section className="mb-24 mt-14">
-                <div className="text-center mb-16">
-                    <h2 className="text-3xl font-bold text-slate-900 mb-4">Built for Every Government Bidder</h2>
-                    <p className="text-xl text-slate-600">From construction sites to design studios, India's top professionals rely on us.</p>
+            <div className="container mx-auto px-4 relative z-10 grid md:grid-cols-2 gap-16 items-center max-w-6xl">
+                <div className="space-y-8">
+                     <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-800 text-indigo-200 font-bold text-sm uppercase tracking-wider">
+                        Premium Service - ONE TO ONE
+                    </div>
+                    <h2 className="text-4xl md:text-5xl font-bold leading-tight">
+                        Why You Need The <br/>
+                        <span className="text-indigo-300">Guaranteed Service?</span>
+                    </h2>
+                    
+                    <div className="space-y-8 text-indigo-100 leading-relaxed">
+                        <p className="text-lg opacity-90">
+                            The Free Tool gives you data. But <strong>Data alone doesn't win tenders.</strong> 
+                        </p>
+
+                        <div className="space-y-6 pl-4 border-l-2 border-indigo-700">
+                             <div>
+                                <h4 className="flex items-center gap-2 font-bold text-xl text-white mb-1">
+                                    <span className="text-emerald-400">1.</span> 
+                                    Daily Monitoring (₹999/mo)
+                                </h4>
+                                <p className="text-sm opacity-75">
+                                    Contracts are uploaded daily. We monitor 24/7 and filter the noise.
+                                </p>
+                             </div>
+
+                             <div>
+                                <h4 className="flex items-center gap-2 font-bold text-xl text-white mb-1">
+                                    <span className="text-emerald-400">2.</span> 
+                                    Execution & AI Strategy
+                                </h4>
+                                <p className="text-sm opacity-75">
+                                    We handle Brand Approvals, Catalog Management, and use proprietary AI to predict the winning price.
+                                </p>
+                             </div>
+
+                             <div>
+                                <h4 className="flex items-center gap-2 font-bold text-xl text-white mb-1">
+                                    <span className="text-emerald-400">3.</span> 
+                                    Complete Peace of Mind
+                                </h4>
+                                <p className="text-sm opacity-75">
+                                    No hidden commissions. No complex cuts. Just a simple, flat fee for a dedicated team of experts.
+                                </p>
+                             </div>
+                        </div>
+                    </div>
+                    
+                    <div className="flex gap-8 pt-4 border-t border-indigo-800/50 mt-8">
+                        <div>
+                            <div className="text-4xl font-bold text-emerald-400">FREE</div>
+                            <div className="text-sm opacity-60">To Book Session</div>
+                        </div>
+                        <div className="w-px bg-indigo-700 h-12"></div>
+                        <div>
+                            <div className="text-4xl font-bold text-indigo-300">₹999</div>
+                            <div className="text-sm opacity-60">Per Month</div>
+                        </div>
+                    </div>
                 </div>
                 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {/* Persona 1: Construction */}
-                    <div className="group relative rounded-2xl overflow-hidden aspect-[4/5] shadow-lg">
-                        <Image 
-                            src="/assets/site_engineer.png" 
-                            alt="Civil Engineer" 
-                            fill 
-                            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-                            sizes="(max-width: 768px) 100vw, 33vw"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
-                        <div className="absolute bottom-0 left-0 p-8 text-white">
-                            <h3 className="text-2xl font-bold mb-1">Construction</h3>
-                            <p className="text-sm text-slate-300 mb-4">Civil Engineers & Contractors</p>
-                            <div className="inline-flex items-center gap-2 text-xs font-bold text-emerald-400 uppercase tracking-widest">
-                                <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
-                                Works Data
-                            </div>
+                <div className="bg-white p-8 rounded-3xl shadow-2xl text-slate-900">
+                    <div className="mb-6">
+                        <h3 className="text-2xl font-bold mb-2">Get a Call Back</h3>
+                        <p className="text-slate-500 text-sm">Fill details below. Our team will contact you for the Guaranteed Service.</p>
+                    </div>
+                    <LeadCaptureForm />
+                </div>
+            </div>
+        </section>
+
+        {/* ONE STOP SOLUTION - VISUAL PROOF */}
+        <section className="py-24 bg-slate-50">
+            <div className="container mx-auto px-4 max-w-6xl">
+                <div className="grid md:grid-cols-2 gap-16 items-center">
+                    <div className="order-2 md:order-1 relative">
+                        <div className="absolute inset-0 bg-indigo-500 rounded-full opacity-20 filter blur-3xl animate-pulse"></div>
+                        <div className="relative rounded-[3rem] overflow-hidden shadow-2xl bg-white border-8 border-white transform rotate-2 hover:rotate-0 transition-transform duration-700">
+                             <Image 
+                                src="/assets/all_in_one.png" 
+                                alt="All In One GeM Solution" 
+                                width={800} 
+                                height={800} 
+                                className="object-cover"
+                             />
                         </div>
                     </div>
-
-                    {/* Persona 2: Consultant */}
-                    <div className="group relative rounded-2xl overflow-hidden aspect-[4/5] shadow-lg">
-                        <Image 
-                            src="/assets/female_architect.png" 
-                            alt="Architect" 
-                            fill 
-                            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-                             sizes="(max-width: 768px) 100vw, 33vw"
-                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
-                        <div className="absolute bottom-0 left-0 p-8 text-white">
-                            <h3 className="text-2xl font-bold mb-1">Consultants</h3>
-                            <p className="text-sm text-slate-300 mb-4">Architects & Project Managers</p>
-                            <div className="inline-flex items-center gap-2 text-xs font-bold text-indigo-400 uppercase tracking-widest">
-                                <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
-                                Services Data
-                            </div>
-                        </div>
-                    </div>
-
-                     {/* Persona 3: MSME */}
-                    <div className="group relative rounded-2xl overflow-hidden aspect-[4/5] shadow-lg">
-                        <Image 
-                            src="/assets/sme_owner.png" 
-                            alt="SME Owner" 
-                            fill 
-                            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-                             sizes="(max-width: 768px) 100vw, 33vw"
-                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
-                        <div className="absolute bottom-0 left-0 p-8 text-white">
-                            <h3 className="text-2xl font-bold mb-1">MSMEs</h3>
-                            <p className="text-sm text-slate-300 mb-4">Small Business Owners</p>
-                            <div className="inline-flex items-center gap-2 text-xs font-bold text-purple-400 uppercase tracking-widest">
-                                <span className="w-2 h-2 rounded-full bg-purple-400"></span>
-                                Product Bids
-                            </div>
+                    <div className="order-1 md:order-2 space-y-6">
+                        <h2 className="text-4xl font-bold text-slate-900 leading-tight">
+                            The <span className="text-indigo-600">One-Stop Solution</span> <br/>
+                            For Government Tenders.
+                        </h2>
+                        <p className="text-lg text-slate-600 leading-relaxed">
+                            Stop juggling between multiple tools and consultants. We provide everything you need to dominate the Government e-Marketplace.
+                        </p>
+                        <div className="space-y-4">
+                            {[
+                                { title: "Smart Search", desc: "Find hidden tenders 10x faster." },
+                                { title: "L1 Prediction", desc: "Know the winning price before you bid." },
+                                { title: "Technical Shield", desc: "100% protection from technical rejection." },
+                                { title: "Execution Arm", desc: "We manage logistics, catalogs, and invoices." }
+                            ].map((item, i) => (
+                                <div key={i} className="flex items-start gap-4 p-4 bg-white rounded-xl shadow-sm border border-slate-100">
+                                    <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 font-bold shrink-0">
+                                        ✓
+                                    </div>
+                                    <div>
+                                        <h4 className="font-bold text-slate-900">{item.title}</h4>
+                                        <p className="text-sm text-slate-500">{item.desc}</p>
+                                    </div>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </div>
-             </section>
+            </div>
+        </section>
+
+        {/* SEO POWERHOUSE - "SECRET STEPS" */}
+        <section className="py-24 bg-white border-t border-slate-100">
+            <div className="container mx-auto px-4 max-w-4xl mx-auto text-center">
+                 <h2 className="text-3xl font-bold text-slate-900 mb-12">The Secret "3-Step" Winning Formula</h2>
+                 <div className="grid md:grid-cols-3 gap-8 text-left">
+                    <div className="space-y-4">
+                        <h3 className="text-xl font-bold text-indigo-700">1. Reverse Engineering</h3>
+                        <p className="text-slate-600 text-sm leading-relaxed">
+                            Most bidders guess. We don't. We reverse-engineer the <strong>GeM L1 Price</strong> by analyzing historical contracts of similar specifications. This allows us to bid exactly ₹1 less than the estimated competition.
+                        </p>
+                    </div>
+                    <div className="space-y-4">
+                        <h3 className="text-xl font-bold text-indigo-700">2. Technical Compliance</h3>
+                        <p className="text-slate-600 text-sm leading-relaxed">
+                            <strong>GeM Tender Rejection</strong> is common. We ensure your documents match the "Q3" specifications perfectly, guaranteeing technical qualification so your price is actually opened.
+                        </p>
+                    </div>
+                    <div className="space-y-4">
+                        <h3 className="text-xl font-bold text-indigo-700">3. Market Liquidity</h3>
+                        <p className="text-slate-600 text-sm leading-relaxed">
+                            We track which OEM brands (HP, Dell, Godrej) are currently aggressive in the market, allowing us to source products at rates that make winning at L1 profitable.
+                        </p>
+                    </div>
+                 </div>
+
+                 {/* KEYWORD DUMP FOR SEO (Styled nicely) */}
+                 <div className="mt-20 pt-10 border-t border-slate-100 text-left">
+                    <div className="grid md:grid-cols-4 gap-8">
+                        <div>
+                            <h4 className="text-xs font-bold text-slate-900 uppercase tracking-widest mb-4">Core Services</h4>
+                            <ul className="space-y-2 text-xs text-slate-500">
+                                <li><a href="#" className="hover:text-indigo-600">GeM Registration</a></li>
+                                <li><a href="#" className="hover:text-indigo-600">GeM Login Help</a></li>
+                                <li><a href="#" className="hover:text-indigo-600">Brand Approval</a></li>
+                                <li><a href="#" className="hover:text-indigo-600">Vendor Assessment</a></li>
+                                <li><a href="#" className="hover:text-indigo-600">L1 Price Calculator</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 className="text-xs font-bold text-slate-900 uppercase tracking-widest mb-4">Tender Types</h4>
+                            <ul className="space-y-2 text-xs text-slate-500">
+                                <li><a href="#" className="hover:text-indigo-600">Manpower Outsourcing</a></li>
+                                <li><a href="#" className="hover:text-indigo-600">Custom Bid (BoQ)</a></li>
+                                <li><a href="#" className="hover:text-indigo-600">Bunch Bids</a></li>
+                                <li><a href="#" className="hover:text-indigo-600">Reverse Auction (RA)</a></li>
+                                <li><a href="#" className="hover:text-indigo-600">Direct Purchase</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 className="text-xs font-bold text-slate-900 uppercase tracking-widest mb-4">Top Categories</h4>
+                            <ul className="space-y-2 text-xs text-slate-500">
+                                <li><a href="#" className="hover:text-indigo-600">Computer & Laptops</a></li>
+                                <li><a href="#" className="hover:text-indigo-600">Office Furniture</a></li>
+                                <li><a href="#" className="hover:text-indigo-600">Security Surveillance</a></li>
+                                <li><a href="#" className="hover:text-indigo-600">Housekeeping</a></li>
+                                <li><a href="#" className="hover:text-indigo-600">Vehicle Hiring</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 className="text-xs font-bold text-slate-900 uppercase tracking-widest mb-4">Resources</h4>
+                            <ul className="space-y-2 text-xs text-slate-500">
+                                <li><a href="#" className="hover:text-indigo-600">Gem 3.0 Handbook</a></li>
+                                <li><a href="#" className="hover:text-indigo-600">Tender ROI Analysis</a></li>
+                                <li><a href="#" className="hover:text-indigo-600">Bid Participation Guide</a></li>
+                                <li><a href="#" className="hover:text-indigo-600">Invoice Discounting</a></li>
+                                <li><a href="#" className="hover:text-indigo-600">GeM Portal FAQ</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+        </section>
 
 
-            
-             {/* 100% REFUND GUARANTEE SECTION */}
-             <section className="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200 p-8 md:p-12 mb-32">
-                  <div className="absolute top-0 right-0 p-32 bg-amber-400 rounded-full blur-[100px] opacity-10"></div>
-                  <div className="relative z-20 flex flex-col md:flex-row items-center gap-10">
-                      <div className="flex-1 space-y-6 text-center md:text-left">
-                          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 text-amber-800 font-bold text-xs uppercase tracking-wider border border-amber-200">
-                             <Award className="h-4 w-4" />
-                             Risk-Free Promise
-                          </div>
-                          <h2 className="text-4xl md:text-5xl font-bold text-slate-900">
-                              Win a Tender in 30 Days,<br/>
-                              <span className="text-amber-600">Or Get a 100% Refund.</span>
-                          </h2>
-                          <p className="text-lg text-slate-700 leading-relaxed max-w-xl">
-                              We are so confident in our <strong>GeM Consultancy AI</strong> that we back it with cash. 
-                              If you don't secure a <strong>Government Contract</strong> within one month of using our Pro plan, we will refund every rupee.
-                          </p>
-                          <div className="pt-4 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                              <GuaranteeForm />
-                              <div className="flex items-center gap-2 text-sm text-slate-500 px-4">
-                                  <CheckCircle2 className="h-4 w-4 text-emerald-500" />
-                                  <span>T&C Apply</span>
-                              </div>
-                          </div>
-                      </div>
-                      <div className="w-full md:w-1/3 flex justify-center">
-                          <div className="relative w-64 h-64 bg-white rounded-full shadow-2xl flex items-center justify-center border-8 border-amber-100">
-                               <div className="text-center">
-                                   <div className="text-6xl font-black text-amber-500 mb-1">100%</div>
-                                   <div className="text-lg font-bold text-slate-900 uppercase tracking-widest">Money Back</div>
-                                   <div className="text-sm font-medium text-slate-500 uppercase tracking-wide">Guarantee</div>
-                               </div>
-                          </div>
-                      </div>
-                  </div>
-             </section>
+        {/* FAQ - SEO MAGNET */}
+        <section className="py-24 w-full bg-slate-50">
+            <div className="container mx-auto px-4 max-w-4xl">
+                 <h2 className="text-3xl font-bold text-slate-900 mb-12 text-center">Frequently Asked Questions</h2>
+                 <div className="space-y-4">
+                    {[
+                        { q: "How does the L1 Price Prediction work?", a: "We use historical data from over 10 million GeM contracts. Our AI analyzes patterns in 'Unit Price', 'Brand', and 'Location' to predict the lowest price (L1) required to win the current bid." },
+                        { q: "Is this tool affiliated with GeM Portal?", a: "No, we are an independent market intelligence platform. We compile public data to help sellers make informed decisions. We are not a government entity." },
+                        { q: "Can I win tenders without undercutting my margin?", a: "Yes! Most sellers bid blindly. By knowing the EXACT historical L1 price, you can bid just slightly lower than the competition, preserving your maximum possible margin." },
+                        { q: "What is the 'Guaranteed Service'?", a: "For a flat fee of ₹999/mo, we assign a dedicated expert to monitor tenders for you, manage your catalog, and handle technical documentation to prevent rejection." }
+                    ].map((faq, i) => (
+                        <div key={i} className="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                            <h3 className="text-lg font-bold text-slate-900 mb-2">{faq.q}</h3>
+                            <p className="text-slate-600 leading-relaxed">{faq.a}</p>
+                        </div>
+                    ))}
+                 </div>
+            </div>
+        </section>
 
 
+                <div className="grid grid-cols-1 gap-40">
 
             {/* USP CLARIFICATION SECTION */}
             <section className="text-center space-y-8">
@@ -538,21 +600,13 @@ export default function Home() {
                 </div>
             </section>
 
-        </div>
+                </div>
 
+
+        
       </main>
-      
-      <footer className="border-t border-slate-100 bg-white py-12 relative z-10 w-full">
-        <div className="container mx-auto px-4 text-center text-slate-400 text-sm">
-          <p className="mb-4">
-            <span className="font-semibold text-slate-600">gembid.help</span> &bull; The #1 GeM Intelligence Tool
-          </p>
-          <p>&copy; {new Date().getFullYear()} gembid.help. All rights reserved.</p>
-          <div className="mt-4 flex justify-center gap-4">
-            <a href="https://gem.gov.in" target="_blank" rel="noopener noreferrer" className="text-xs text-slate-300 hover:text-indigo-600">Official GeM Portal</a>
-          </div>
-        </div>
-      </footer>
+
+      <MarutiAgent />
     </div>
   );
 }

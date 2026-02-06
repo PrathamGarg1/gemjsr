@@ -35,8 +35,8 @@ const geistMono = Geist_Mono({
   };
 
 export const metadata: Metadata = {
-  title: "Predict GeM Bid Prices & Win Contracts | gembid.help | #1 GeM Intelligence Tool",
-  description: "Don't guess. Win contracts. We indexed the entire GeM portal to predict winning bid prices using advanced AI. Stop losing profit and start winning Government e-Marketplace tenders today.",
+  title: "GeM L1 Price Prediction & Tender Consultant | Win Government Bids | gembid.help",
+  description: "India's #1 GeM Data Intelligence & Consultancy Agency. Predict L1 winning prices for GeM tenders using AI. Expert services for GeM Registration, Brand Approval, Catalog Management, and Tender Bidding. Stop guessing, start winning.",
   applicationName: 'gembid.help',
   authors: [{ name: 'Pratham Garg', url: 'https://gembid.help' }],
   generator: 'Next.js',
@@ -93,7 +93,7 @@ export const metadata: Metadata = {
   }
 };
 
-import { Footer } from "@/components/Footer";
+
 
 export default function RootLayout({
   children,
@@ -187,7 +187,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
        <head>
         <script
           type="application/ld+json"
@@ -207,10 +207,9 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
-        <Footer />
       </body>
     </html>
   );

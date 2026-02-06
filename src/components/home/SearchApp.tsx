@@ -105,33 +105,41 @@ export function SearchApp() {
               proximity={64}
               inactiveZone={0.01}
             />
-          <div className="relative bg-white/90 backdrop-blur-xl rounded-2xl p-2 border border-slate-50 shadow-sm">
+          <div className="relative bg-white/90 backdrop-blur-xl rounded-2xl p-2 border border-indigo-200 shadow-2xl shadow-indigo-500/40 ring-4 ring-indigo-500/30">
             <form onSubmit={handleSearch} className="flex flex-col md:flex-row gap-2 relative z-20">
               <div className="relative flex-grow">
-                <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-400" />
+                <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-indigo-500" />
                 <Input
-                  className="w-full pl-12 h-14 text-lg border-none shadow-none focus-visible:ring-0 bg-transparent placeholder:text-slate-400 text-slate-900"
+                  className="w-full pl-12 h-14 text-lg border-2 border-transparent focus:border-indigo-500/50 shadow-none focus-visible:ring-0 bg-transparent placeholder:text-slate-400 text-slate-900 transition-all font-medium"
                   placeholder="e.g., 'Core i7 Laptop' (Search Historical Prices)"
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
                 />
               </div>
 
-              <div className="flex items-center gap-2 px-2 md:border-l border-slate-100">
-                 <div className="flex items-center gap-2 px-3 py-2 bg-slate-50 rounded-lg whitespace-nowrap border border-slate-200/60">
+              <div className="flex items-center gap-2 px-2 md:border-l border-slate-100 relative z-50">
+                 <div className="flex items-center gap-2 px-3 py-2 bg-slate-50 rounded-lg whitespace-nowrap border border-slate-200/60 hover:bg-slate-100 transition-colors cursor-pointer relative">
                    <SlidersHorizontal className="h-4 w-4 text-slate-400" />
                    <span className="text-sm font-medium text-slate-500">Limit:</span>
-                   <Select value={topK} onValueChange={setTopK}>
-                    <SelectTrigger className="h-8 w-[60px] border-0 bg-transparent focus:ring-0 p-0 text-slate-900 font-bold shadow-none">
-                      <SelectValue placeholder="10" />
-                    </SelectTrigger>
-                    <SelectContent className="bg-white border-slate-100 text-slate-900 shadow-xl">
-                      <SelectItem value="5" className="focus:bg-slate-50">5</SelectItem>
-                      <SelectItem value="10" className="focus:bg-slate-50">10</SelectItem>
-                      <SelectItem value="20" className="focus:bg-slate-50">20</SelectItem>
-                      <SelectItem value="50" className="focus:bg-slate-50">50</SelectItem>
-                    </SelectContent>
-                  </Select>
+                   
+                   {/* Native Select for Reliability */}
+                   <select 
+                      value={topK} 
+                      onChange={(e) => setTopK(e.target.value)}
+                      className="h-8 w-[60px] bg-transparent border-0 text-slate-900 font-bold focus:ring-0 cursor-pointer appearance-none z-50 relative outline-none"
+                      style={{ backgroundImage: 'none' }}
+                   >
+                      <option value="5">5</option>
+                      <option value="10">10</option>
+                      <option value="20">20</option>
+                      <option value="50">50</option>
+                   </select>
+                   {/* Custom Arrow */}
+                   <div className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2">
+                      <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M1 1L5 5L9 1" stroke="#64748B" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                   </div>
                  </div>
               </div>
 
@@ -140,9 +148,9 @@ export function SearchApp() {
                 size="lg" 
                 type="submit"
                 disabled={loading}
-                className="h-14 px-8 rounded-xl bg-slate-900 text-white hover:bg-slate-800 font-bold shadow-lg shadow-slate-900/20 transition-all text-base"
+                className="h-14 px-8 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold shadow-lg shadow-indigo-500/30 transition-all text-base"
               >
-                {loading ? <Loader2 className="h-5 w-5 animate-spin" /> : "Analyze"}
+                {loading ? <Loader2 className="h-5 w-5 animate-spin" /> : "Search"}
               </Button>
             </form>
           </div>
@@ -155,7 +163,7 @@ export function SearchApp() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -20 }}
-                    className="w-full max-w-2xl mx-auto mb-16 text-center"
+                    className="w-full max-w-2xl mx-auto  text-center"
                 >
                     <div className="relative w-full h-2 bg-slate-200 rounded-full overflow-hidden mb-6">
                         <motion.div 
