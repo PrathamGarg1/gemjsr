@@ -14,7 +14,7 @@ export function BackgroundEffectsContent() {
       <div className="fixed left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-indigo-400 opacity-20 blur-[100px]"></div>
 
       {/* BACKGROUND BEAMS - Pushed to back */}
-      <BackgroundBeams className="absolute inset-0 z-0 opacity-50 pointer-events-none" />
+      <BackgroundBeams className="fixed inset-0 z-0 opacity-50 pointer-events-none" />
     </>
   );
 }
